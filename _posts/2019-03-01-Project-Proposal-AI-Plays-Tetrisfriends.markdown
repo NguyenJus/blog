@@ -63,7 +63,7 @@ A model of reinforcement learning on a simple game will be created in order to l
 ### Part 4: AI Plays TetrisFriends
 The final part of the project will be to combine everything into one project. The AI will be able to find the Tetris grid, pull pixel data from its 200 grid blocks, find its score and calculate accordingly, and just play the game. It will be trained in Tetris Marathon, a mode that ends after 15 levels.
 
-![screenshot](/assets/img/TetrisMarathon.png)
+![screenshot](/assets/img/tetrismarathon.png)
 
 *Figure 4: Tetris Marathon Play Space [source](https://www.tetrisfriends.com/games/Marathon/game.php)*
 
