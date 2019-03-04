@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Flasky: ManiaBot's Side Gig"
-date:   2019-03-04 4:09:00 -0500
+date:   2019-03-04 18:26:00 -0500
 categories:
 ---
 
