@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "Flasky: ManiaBot's Side Gig"
+date:   2019-03-04 4:09:00 -0500
+categories:
+---
+
+As I mentioned in the [ManiaBot Post](https://nguyenjus.github.io/blog/ManiaBot/), the AI can easily be repurposed to do tasks other than play Mania games. Just for fun, I decided to convert the AI to an auto-potter for [Path of Exile](https://www.pathofexile.com/news). When I get to low health (under 35%, but this can be modular), the AI automatically uses a potion for me faster than average human reaction time!
+
+![gif](https://media.giphy.com/media/8Fi8e9rlBraURnF50E/giphy.gif)
+
+
+
+
+
+
+
+## **Disclaimer**
+Yes, this can be considered a hacking/cheating tool. As such, I have only used in settings that do not matter - that is in my hideout on Standard League. I will not release the code.
+
+***
+## **Introduction**
+So in Path of Exile, there is a condition where if you are under 35% life, you are considered at low-life. There is a health flask that restores health instantly when the user is at low-life, and gradually if the user is not at low-life. We can detect whether the bot knows we're at low life using this flask.
+
+<img src="https://i.imgur.com/IstzKuk.png" alt="drawing" width="300"/>
+
+My character's maximum health is 6060, so low-life is 6060 * 35% = 2121 health.
+
+In order to damage myself without allowing the AI to be considered cheating, I used a skill called "Blood Rage," which gradually takes away health over a period of 12 seconds. I also used a skill linked to "Blood Magic," which causes the skill to take away health to use.
+
+The bulk of the code was reused from [ManiaBot](https://nguyenjus.github.io/blog/ManiaBot/). This post will simply run through converting the AI's job to a different task.
+
+***
+## **Method**
+I used the same libraries as in ManiaBot - [win32ui](http://timgolden.me.uk/pywin32-docs/win32ui.html) and [pynput](https://github.com/moses-palmer/pynput). All we need to do is make a few adjustments.
+
+The first thing to do is uncover what values the color of the health bar can take. This could be done in MSPaint. I added horizontal and vertical black bars to approximate the coordinates I need to use since black lines have a value of 0. We first iterate horizontally to approximate the x-coordinate needed. Then, we iterate through a vertical line of pixels through the black bar to find and print all pixel values:
+
+```
+x = 100                                   # approximate x
+for i in range(1000):                     # 1920x1080 resolution, so go slightly lower
+    print(i, window.GetPixel(x, i))       # i = our y
+```
+
+<img src="https://i.imgur.com/AGs1TeK.png " alt="drawing" width="400"/>
+
+That section of zeroes represents the black bar. The good news is that there is a clear divide between pixel values of the above color and the below color. The upper limit of the red section is approximately 1600000 - 1700000, which is below the lower limit of the no red section.
+
+```
+pixel_color = window.GetPixel(x,y)
+if pixel_color > 1700000:                 # 1700000 divides red from non-red
+    # press the flask                     # just pseudocode!
+```
+
+Now we need to find the coordinates in the actual game. To do this, I brought my character as close to 35% health, but still under, as possible. I approximated the x-coordinate, and iterated through all y coordinates until I found the red values of 1700000 or less. This happened around i = 1030 (so pixel 1030 in the vertical plane). The next step is to slowly move that y-coordinate upwards until the flask successfully triggers.
+
+One issue: the pixel reading was so fast that it would trigger the flask multiple times before it realized that the user's health had already been refilled. To prevent this, I imported [time](https://docs.python.org/3/library/time.html) and put a sleep for 0.1 seconds after triggering the flask.
+
+And we're done! Here it is in action:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V4WIY-_6pkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+If you look frame-by-frame and do some calculations, you will notice that my AI actually triggers the flask at 33.9% instead of at 34.9999999999%. As I was using my actual account for this small project, I imported a [random](https://docs.python.org/2/library/random.html) wait time before using the flask. The range is still quicker than normal human reaction time, so it's still effective.
+
+***
+## **Wrap Up**
+In essence, this AI can do anything that requires a keyboard or mouse action following visual cues. All we need to adjust is where the AI needs to look, what color it needs to look for, and what button it needs to press.
+
+For this particular game, we can even adjust the AI to use potions as soon as they run out to maximize the duration and usage. But I won't try that because that's beyond cheating.
+
+For this blog, the posts will slow down as I won't have much to report on in the coming days until I start my next project. I anticipate that my next projects will not be cheat tools, so I will be more comfortable walking through the full code and releasing the source. Thanks for reading and I hope you learned something!

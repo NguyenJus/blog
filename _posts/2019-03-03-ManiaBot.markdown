@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Osu!Mania Bot: Simple Computer Vision AI"
+title:  "Osu!Mania Bot: Simple Computer Vision AI Using Python"
 date:   2019-03-03 19:13:00 -0500
 categories:
 ---
