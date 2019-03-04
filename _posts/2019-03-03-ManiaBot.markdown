@@ -56,7 +56,7 @@ def screen_record():
 
 The code takes a picture of the boxed area and converts it to an array using [numpy](http://www.numpy.org/). It then converts the color scheme to grayscale and replicates what the AI sees in another window. Great! The AI can now see the screen. The method of performance chosen was the single pixel method. Thus, there are only four spots that the computer needs to look at. I found these spots manually by changing the pixel color of the screen and moving the coordinates until they were in the correct spot.
 
-![img](/assets/img/probot5000.png)
+![img](https://i.imgur.com/VG0h41v.png)
 
 The pixel positions are not perfect, but they should do the job. Those white pixels are just for show. The AI is actually reading the pixel data of the pixel directly under those white pixels so they aren't interrupting the program!
 
