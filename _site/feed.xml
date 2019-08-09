@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-06T11:58:01-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Justin’s Blog</title><subtitle>My Blog</subtitle><author><name>Justin Nguyen</name></author><entry><title type="html">Update on the Blog</title><link href="http://localhost:4000/Update-on-the-Blog/" rel="alternate" type="text/html" title="Update on the Blog" /><published>2019-08-06T07:12:01-04:00</published><updated>2019-08-06T07:12:01-04:00</updated><id>http://localhost:4000/Update-on-the-Blog</id><content type="html" xml:base="http://localhost:4000/Update-on-the-Blog/">&lt;p&gt;I wanted to reiterate and update my goals for this blog as well as my goals as a computer science student. I wanted to think both about previous blogs and future blogs.&lt;/p&gt;
+
+&lt;h2 id=&quot;blog-goals&quot;&gt;Blog Goals&lt;/h2&gt;
+
+&lt;p&gt;The primary goal of this blog is to document my path towards my interest in computer science. I would like to write about anything significant that I learn from projects, readings, or videos. Currently, I’m doing a ton of reading into reinforcement learning - you can see in the resources tab of this blog.&lt;/p&gt;
+
+&lt;p&gt;The other primary goal of this blog is to continue to write. I anticipate the need for tons of writing in the future and it would be awful if my writing ability were to dwindle from lack of practice.&lt;/p&gt;
+
+&lt;p&gt;Then there are secondary goals that just come naturally with the blog. For one, I hope that employers can see my passion and work and will hire me one day. For another, I hope to inspire some reader to pursue computer science. These goals are not the focus, however.&lt;/p&gt;
+
+&lt;h2 id=&quot;improving-the-blog&quot;&gt;Improving the Blog&lt;/h2&gt;
+
+&lt;p&gt;I have a list of things I want to improve on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Be more verbose. Some posts have too many words for what was accomplished.&lt;/li&gt;
+  &lt;li&gt;Quit procrastinating. I have been posting a month after my discoveries.&lt;/li&gt;
+  &lt;li&gt;Continue using visual cues. I like seeing pictures and videos adn will continue to do that.&lt;/li&gt;
+  &lt;li&gt;Focus on reinforcement learning. This field, or similar, is what I’ve decided to pursue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;updates-as-a-student&quot;&gt;Updates as a Student&lt;/h2&gt;
+
+&lt;p&gt;Around this day last month, I found out that the type of learning I’m interested in, reinforcement learning, is so broad that calling my interest “machine learning” or “artificial intelligence” does it no justice. In fact, artificial intelligence is so broad that I would dare say it could be its own major separate from computer science. Looking retroactively, all of my goals have been to have an AI learn how to do things by itself without human guidance. As such, I have decided to focus my master’s thesis and Ph.D. on reinforcement learning.&lt;/p&gt;
+
+&lt;p&gt;There are tons of applications of reinforcement learning - multiagent, partially observable, learning under uncertainty, etc. I’m never entirely sure how to explain my interests. First, I would like to build a reinforcement learning method that can solve problems too complex for my brain. Since I am no Einstein, perhaps I can train an EinsteinAI that will solve problems for me (this is an exaggeration). The question I often provide is: “play X game for me one million times. What is the most optimal way of playing that game?” Second, I would like to see a reinforcement learning method that can provide reasoning to its choices. The question for this point is: “in chess, beyond estimated win probability, what makes 1. E4 the best opening move?” I’m also interested in coordinated reinforcement learning agents. Currently, reinforcement learning agents have one or a few “brains” to solve their problems. Human brains have many subsections that all focus on different goals. Can this be applied to reinforcement learning? I know some of these seem impossible. Perhaps, as I learn more, I will understand why they are impossible. Perhaps alternatively, as I learn more, I will conduct research that takes us a step towards these interests. I need to eventually concretely label my interests so that I can write research proposals…&lt;/p&gt;
+
+&lt;h2 id=&quot;future&quot;&gt;Future&lt;/h2&gt;
+
+&lt;p&gt;You may see plenty more reinforcement learning projects as I continue to learn. Or not - my next semesters are packed for coursework and research. We’ll see.&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">I wanted to reiterate and update my goals for this blog as well as my goals as a computer science student. I wanted to think both about previous blogs and future blogs.</summary></entry><entry><title type="html">Typist for 10FastFingers</title><link href="http://localhost:4000/Typist-for-10fastfingers/" rel="alternate" type="text/html" title="Typist for 10FastFingers" /><published>2019-05-26T15:42:00-04:00</published><updated>2019-05-26T15:42:00-04:00</updated><id>http://localhost:4000/Typist-for-10fastfingers</id><content type="html" xml:base="http://localhost:4000/Typist-for-10fastfingers/">&lt;p&gt;About a month ago, a friend approached me and asked if I could make a typing bot since it could be similar to my &lt;a href=&quot;https://nguyenjus.github.io/blog/ManiaBot/&quot;&gt;ManiaBot&lt;/a&gt;. I immediately figured I would need to train the AI on the font to detect the letters that it needed to type. Since I was not confident in machine learning and the project was on a time-constraint, I declined. Two days later, I found Google’s Tesseract OCR, sparking my journey into creating a new AI.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/JRJv30eoBRF1Sb9tcO/giphy.gif&quot; alt=&quot;gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Although it is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;We want to write a bot that can read the letters on the screen and type them, preferably like a human with delays between the keystrokes. Why 10fastfingers? Well because I didn’t have access to my friend’s site and 10fastfingers seemed like the simplest cascading-text-lines typing test on the first page of Google’s search.&lt;/p&gt;
+
+&lt;p&gt;We can read the screen using PIL. We can find letters using Tesseract OCR. We can type using pynput. So we can combine all of the above to make a typing test bot! Great! Simple.&lt;/p&gt;
+
+&lt;h2 id=&quot;reading-text&quot;&gt;&lt;strong&gt;Reading Text&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In order to read the text, we must read the screen first. To do this, I used PIL:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;im = ImageGrab.grab(bbox=92,244,934,340))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This grabs the image box containing only the words that we need to type.&lt;/p&gt;
+
+&lt;p&gt;Now, here’s where I originally got stuck. Believe me if you want, but I dreamed of a module that came pre-trained on various characters. Lo and behold, when I searched it up, I found &lt;a href=&quot;https://youtu.be/jWh0FaRRZC4&quot;&gt;exactly what I needed&lt;/a&gt;!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;text = pytesseract.image_to_string(im, lang = 'eng')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is amazing because it will help with the French, Spanish, Portuguese, and the other language modules too! Now, we can print to test what kind of words the AI thinks is on the screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/roEGDOp.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;typing-text&quot;&gt;&lt;strong&gt;Typing Text&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;If you had read about my ManiaBot, this part is easy with pynput. However, I decided to play with &lt;a href=&quot;https://github.com/boppreh/keyboard&quot;&gt;Keyboard&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for letter in lines:
+    if kill() or not check_window():
+        return
+    elif letter == '\n':
+        keyboard.press_and_release('space')
+    elif letter.isupper():
+        keyboard.press_and_release('shift +' + letter)
+    else:
+        keyboard.press_and_release(letter)
+        time.sleep(random.uniform(11/wpm,13/wpm))
+keyboard.press_and_release('space')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Each time we type, we must check if the conditions are still good (user hasn’t killed the program and is in the appropriate window). This is what kill() and check_window() functions are for. Line breaks are considered spaces, so we check for that too. At the end of the text, we should also space to move onto the new lines. Keyboard has this small issue where it types the letter in lowercase even if it is uppercase, so we deal with that by holding shift when necessary.&lt;/p&gt;
+
+&lt;p&gt;I added random delays after pressing each letter for &lt;del&gt;cheating&lt;/del&gt; legacy purposes. The delay per wpm does not calculate perfectly for a few reasons. First, PIL and Tesseract take a small amount time to process data. Secondly, I had to add a small delay between typing and next image capture since there may be delays updating the typing text on the website. Lastly, f(x) = C/x is an asymptotic function so it will not scale linearly with a linear increase in WPM. The best ranges to use the test are 40-150 WPM. Higher than that, the user needs to increase the ‘WPM’ parameter further to actually reach the WPM they desire.&lt;/p&gt;
+
+&lt;h2 id=&quot;kill-switch&quot;&gt;&lt;strong&gt;Kill Switch&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;We’re basically done, but we just need some way to kill the AI in case it attempts to take over the computer. I added a few countermeasures to combat this issue. I wrote these in the form of flags to check at each phase of the program. First, the user needs to be in the correct window. That is, the browser window containing the typing test. Have you ever tried to type while in a different window? No, it does not work. win32ui works only on Windows (sorry Mac users).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def check_window():
+    return '10FastFingers.com' in win32gui.GetWindowText(win32gui.GetForegroundWindow())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The loop runs while the window title contains “10FastFingers.com”, which can backfire if other windows have the phrase in their window names too, but what’s the likelihood of that… If this is the case, a more specific condition may be used.&lt;/p&gt;
+
+&lt;p&gt;Secondly, the AI checks for text repetition. If the new text is the exact same as the old text, chances are that the lines did not cascade (change) and the test is complete or an error arose. This may backfire if two consecutive texts are intentionally the same.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def flag(oldtext, newtext):
+    return oldtext == newtext
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Just a simple flag function which compares the saved old text with the current new text.&lt;/p&gt;
+
+&lt;p&gt;Finally, a dedicated kill switch! It took me a little bit of time and switching to the new keyboard module to get this to work. Basically, another flag is raised if the program detects ESC button is clicked. There’s a bit of latency issue, so the user should hold ESC for less than half a second instead of tapping it.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def kill():
+    return keyboard.is_pressed('esc')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Just a simple flag function that detects if ESC is clicked.&lt;/p&gt;
+
+&lt;p&gt;With these three flags, I’m fairly confident that the user has most control over the program. Earlier renditions of this program resulted in AI takeover, where the AI would continue typing no matter what, resulting in creation of new files, windows, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;config&quot;&gt;&lt;strong&gt;Config&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;I decided to write a config script to help configure the AI for any screen/window size and typing speed! This came to mind when I wanted to dynamically change the bounding box of PIL image capture. Here’s what I did:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+print('Now hover your mouse over the TOP-LEFT corner of your desired text box.')
+input('Press enter when complete (do not move or click mouse)')
+topleft = win32gui.GetCursorPos()
+config['leftx'] = topleft[0]
+config['topy'] = topleft[1]
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is just a walkthrough script. First, the user should place their mouse cursor in the top left corner of the text box. The cursor position is calculated by win32gui immediately after the user presses “Enter.” The same can be done for the bottom right corner of the text box. As a result, we can generate a box where PIL and Tesseract should capture text from. In this script, the WPM can be specified as well. All of this is saved into a json file and read back by the actual typing AI. Minimal, but I thought I did a cool job!&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;You can find it &lt;a href=&quot;https://github.com/NguyenJus/Typist-for-10fastfingers&quot;&gt;here on my Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;wrap-up&quot;&gt;&lt;strong&gt;Wrap Up&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Initially, I thought I would have to train the AI for character recognition, but it turns out someone else (Google) had already done it for me. This essentially turned my problem into a ManiaBot template. Really, both bots are doing the same thing, just in different ways! It’s cool to be able to reuse what I’ve learned in past works.&lt;/p&gt;
+
+&lt;p&gt;I am currently learning &lt;a href=&quot;https://www.coursera.org/learn/machine-learning/home/welcome&quot;&gt;Machine Learning&lt;/a&gt;, so hopefully soon I can bring more advanced projects to the table.&lt;/p&gt;
+
+&lt;h2 id=&quot;videos&quot;&gt;&lt;strong&gt;Videos&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;From fast to slow, I have four videos. Notice in the fastest one, 10FastFingers does not even have a condition to check if the typing test is complete before one minute is up!&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Rdn4HolKUmI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Here’s an impossibly fast, &lt;em&gt;but not too fast&lt;/em&gt; test.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/J4oCThX3hCM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Just your average 100 WPM tester below.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fhJw9IXGLuM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Last but least, 45 WPM.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HtuTsCHvL6g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">About a month ago, a friend approached me and asked if I could make a typing bot since it could be similar to my ManiaBot. I immediately figured I would need to train the AI on the font to detect the letters that it needed to type. Since I was not confident in machine learning and the project was on a time-constraint, I declined. Two days later, I found Google’s Tesseract OCR, sparking my journey into creating a new AI. Although it is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!</summary></entry><entry><title type="html">On DeepMind’s Power of Self-Learning Systems</title><link href="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/" rel="alternate" type="text/html" title="On DeepMind's Power of Self-Learning Systems" /><published>2019-05-05T22:32:00-04:00</published><updated>2019-05-05T22:32:00-04:00</updated><id>http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems</id><content type="html" xml:base="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/">&lt;p&gt;I recently viewed DeepMind’s talk describing their previous successes with AlphaGo, AlphaGoZero, and AlphaStar. In the lecture, DeepMind described not only their successes, but the importance of their research in many applicable fields. As you may know, DeepMind was and still is one of my primary points of inspiration in my journey in AI/vision. I highly recommend anyone interested in AI to watch it:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3N9phq_yZP0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;my-summary&quot;&gt;&lt;strong&gt;My Summary&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;DeepMind started by attacking Atari’s breakout. Not much was said about the game but it seemed like a relatively easy problem to tackle. Their first huge success was in Go. DeepMind used two systems: AlphaGo and AlphaGoZero. AlphaGo learned by initially watching other people play and attempting to mimic their moves. From mimicking, the AI finds ways to counter the player strategies and goes on to play itself until it becomes the best it can be. AlphaGoZero learned completely by itself; no spectator learning was necessary. These two AI’s went on to beat the human champions of Go. From these achievements came AlphaZero, which was built for chess, but may potentially be applied to any two-player strategy game. AlphaZero dominated the chess world as its predecessor dominated the Go world. From these came AlphaStar which was designed for Starcraft II, a game of imperfect information. Like the others, AlphaStar is ranked above the grandmasters of Starcraft II. Even though DeepMind tackled strategy games, their research can definitely be applied to real life, particularly in the protein folding problem.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-im-interested&quot;&gt;&lt;strong&gt;Why I’m Interested&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The lecture really emphasized why I was originally inspired by DeepMind and why I continue to do the projects I’m undertaking. My field of interest involves providing an AI an environment and having it learn in that environment. Vision allows the AI to extract current game-states or environment-state for analysis in the backend. Learning allows the AI to attempt to solve a problem. As a result, an answer may be produced based on the AI’s understanding of the world it is in. DeepMind did exactly this in AlphaStar. AlphaStar was able to extract information from the map about where the enemy units are, what the enemy is building, what AlphaStar had at ready, etc. It could then predict its probability of winning and take the steps necessary to win the game.&lt;/p&gt;
+
+&lt;p&gt;I’m even more invested in what we as humans can learn from AI, something that DeepMind also emphasizes (this was the first time I heard that they share this philosophy). For example, humans have always known that 1. E4 is the best opening move for chess. We know that by statistics, activity of openings, etc. However, AlphaZero showed us that 1. E4 is best because of the potential to play E5 later in the game. A white pawn on E5 encroaches deeply on black’s space, as there is usually a knight on F6 and king-side castle. I myself am not an amazing chess player, but it is fascinating nonetheless.&lt;/p&gt;
+
+&lt;p&gt;DeepMind continually emphasized the importance of learning something from their AI, like learning new strategies that spark new metas in Starcraft II. This brings me back to my interest in a Tetris AI. Why am I doing it? Because I primarily want to learn whether a flexible T-spin playstyle is better than a quick back-to-back Tetris playstyle or any of the combo playstyles.&lt;/p&gt;
+
+&lt;h2 id=&quot;random-notes&quot;&gt;&lt;strong&gt;Random Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Expert systems are systems where almost every rule and exception is hard-coded into an AI. This method attempts to create the strongest brute-force AI possible. Learning systems attempt to learn the most optimal way to play with limited or no rules and exceptions. By using well-optimized learning systems, you cut down massively on necessary compute power. Of course, I still believe learning systems can be flawed as they have somewhat human-like behavior and, as such, potential for blunder.&lt;/p&gt;
+
+&lt;p&gt;Someone mentioned that, although AlphaStar played below the average grandmaster APM, its peak during battles far exceeded human-like APM. Particularly in game 4 vs MaNa, the human could not keep up because AlphaStar set up a three-pronged attack where it controlled every flank perfectly and quickly. You can see it here: &lt;a href=&quot;https://youtu.be/cUTMhmVh1qs?t=6158&quot;&gt;DeepMind Starcraft II Demonstration&lt;/a&gt; (time 1:42:38). Takeaway: if going for artificial human-like intelligence, keep in mind the limits of human ability and seek to win through intelligence and clever strategies.&lt;/p&gt;
+
+&lt;p&gt;DeepMind mentioned that AlphaZero seemed to evolve some sort of creativity - an ability to come up with a novel move that no one had thought of yet. I really like this about learning systems. They have so much creative space since they are learning from scratch that they are bound to find new and enriching ideas.&lt;/p&gt;
+
+&lt;p&gt;We are just at the beginning of artificial intelligence and learning. There is so much more to tackle in the coming decades and I’m very glad to soon join in on the research. I hope to one day do cool things like DeepMind (and OpenAI) does.&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">I recently viewed DeepMind’s talk describing their previous successes with AlphaGo, AlphaGoZero, and AlphaStar. In the lecture, DeepMind described not only their successes, but the importance of their research in many applicable fields. As you may know, DeepMind was and still is one of my primary points of inspiration in my journey in AI/vision. I highly recommend anyone interested in AI to watch it:</summary></entry><entry><title type="html">Flasky: ManiaBot’s Side Gig</title><link href="http://localhost:4000/Flasky/" rel="alternate" type="text/html" title="Flasky: ManiaBot's Side Gig" /><published>2019-03-04T18:26:00-05:00</published><updated>2019-03-04T18:26:00-05:00</updated><id>http://localhost:4000/Flasky</id><content type="html" xml:base="http://localhost:4000/Flasky/">&lt;p&gt;As I mentioned in the &lt;a href=&quot;https://nguyenjus.github.io/blog/ManiaBot/&quot;&gt;ManiaBot Post&lt;/a&gt;, the AI can easily be repurposed to do tasks other than play Mania games. Just for fun, I decided to convert the AI to an auto-potter for &lt;a href=&quot;https://www.pathofexile.com/news&quot;&gt;Path of Exile&lt;/a&gt;. When I get to low health (under 35%, but this can be modular), the AI automatically uses a potion for me faster than average human reaction time!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/8Fi8e9rlBraURnF50E/giphy.gif&quot; alt=&quot;gif&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;disclaimer&quot;&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Yes, this can be considered a hacking/cheating tool. As such, I have only used in settings that do not matter - that is in my hideout on Standard League. I will not release the code.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;So in Path of Exile, there is a condition where if you are under 35% life, you are considered at low-life. There is a health flask that restores health instantly when the user is at low-life, and gradually if the user is not at low-life. We can detect whether the bot knows we’re at low life using this flask.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IstzKuk.png&quot; alt=&quot;drawing&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My character’s maximum health is 6060, so low-life is 6060 * 35% = 2121 health.&lt;/p&gt;
+
+&lt;p&gt;In order to damage myself without allowing the AI to be considered cheating, I used a skill called “Blood Rage,” which gradually takes away health over a period of 12 seconds. I also used a skill linked to “Blood Magic,” which causes the skill to take away health to use.&lt;/p&gt;
+
+&lt;p&gt;The bulk of the code was reused from &lt;a href=&quot;https://nguyenjus.github.io/blog/ManiaBot/&quot;&gt;ManiaBot&lt;/a&gt;. This post will simply run through converting the AI’s job to a different task.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;method&quot;&gt;&lt;strong&gt;Method&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;I used the same libraries as in ManiaBot - &lt;a href=&quot;http://timgolden.me.uk/pywin32-docs/win32ui.html&quot;&gt;win32ui&lt;/a&gt; and &lt;a href=&quot;https://github.com/moses-palmer/pynput&quot;&gt;pynput&lt;/a&gt;. All we need to do is make a few adjustments.&lt;/p&gt;
+
+&lt;p&gt;The first thing to do is uncover what values the color of the health bar can take. This could be done in MSPaint. I added horizontal and vertical black bars to approximate the coordinates I need to use since black lines have a value of 0. We first iterate horizontally to approximate the x-coordinate needed. Then, we iterate through a vertical line of pixels through the black bar to find and print all pixel values:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x = 100                                   # approximate x
+for i in range(1000):                     # 1920x1080 resolution, so go slightly lower
+    print(i, window.GetPixel(x, i))       # i = our y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AGs1TeK.png &quot; alt=&quot;drawing&quot; width=&quot;400&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That section of zeroes represents the black bar. The good news is that there is a clear divide between pixel values of the above color and the below color. The upper limit of the red section is approximately 1600000 - 1700000, which is below the lower limit of the no red section.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pixel_color = window.GetPixel(x,y)
+if pixel_color &amp;gt; 1700000:                 # 1700000 divides red from non-red
+    # press the flask                     # just pseudocode!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we need to find the coordinates in the actual game. To do this, I brought my character as close to 35% health, but still under, as possible. I approximated the x-coordinate, and iterated through all y coordinates until I found the red values of 1700000 or less. This happened around i = 1030 (so pixel 1030 in the vertical plane). The next step is to slowly move that y-coordinate upwards until the flask successfully triggers.&lt;/p&gt;
+
+&lt;p&gt;One issue: the pixel reading was so fast that it would trigger the flask multiple times before it realized that the user’s health had already been refilled. To prevent this, I imported &lt;a href=&quot;https://docs.python.org/3/library/time.html&quot;&gt;time&lt;/a&gt; and put a sleep for 0.1 seconds after triggering the flask.&lt;/p&gt;
+
+&lt;p&gt;And we’re done! Here it is in action:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/V4WIY-_6pkE&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;If you look frame-by-frame and do some calculations, you will notice that my AI actually triggers the flask at 33.9% instead of at 34.9999999999%. As I was using my actual account for this small project, I imported a &lt;a href=&quot;https://docs.python.org/2/library/random.html&quot;&gt;random&lt;/a&gt; wait time before using the flask. The range is still quicker than normal human reaction time, so it’s still effective.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;wrap-up&quot;&gt;&lt;strong&gt;Wrap Up&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In essence, this AI can do anything that requires a keyboard or mouse action following visual cues. All we need to adjust is where the AI needs to look, what color it needs to look for, and what button it needs to press.&lt;/p&gt;
+
+&lt;p&gt;For this particular game, we can even adjust the AI to use potions as soon as they run out to maximize the duration and usage. But I won’t try that because that’s beyond cheating.&lt;/p&gt;
+
+&lt;p&gt;For this blog, the posts will slow down as I won’t have much to report on in the coming days until I start my next project. I anticipate that my next projects will not be cheat tools, so I will be more comfortable walking through the full code and releasing the source. Thanks for reading and I hope you learned something!&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">As I mentioned in the ManiaBot Post, the AI can easily be repurposed to do tasks other than play Mania games. Just for fun, I decided to convert the AI to an auto-potter for Path of Exile. When I get to low health (under 35%, but this can be modular), the AI automatically uses a potion for me faster than average human reaction time!</summary></entry><entry><title type="html">Osu!Mania Bot: Simple Computer Vision AI Using Python</title><link href="http://localhost:4000/ManiaBot/" rel="alternate" type="text/html" title="Osu!Mania Bot: Simple Computer Vision AI Using Python" /><published>2019-03-03T19:13:00-05:00</published><updated>2019-03-03T19:13:00-05:00</updated><id>http://localhost:4000/ManiaBot</id><content type="html" xml:base="http://localhost:4000/ManiaBot/">&lt;p&gt;Osu!Mania is a variant of Stepmania and Dance Dance Revolution. In the game, a player is presented a cascade of arrows climbing up their screen. The player must press the corresponding arrow keys when the arrows reach the top of the screen. These arrows sync up to the beats of the songs, but this is irrelevant to the AI.&lt;/p&gt;
+
+&lt;p&gt;Before we begin, allow me to show you a totally non-cherrypicked performance of the AI on one of the toughest beatmaps in the game.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vvyZiOLx1EA1yRrXzQ/giphy.gif&quot; alt=&quot;gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gifs don’t do the AI justice - check out proper videos at the bottom. As you can see, even in the heaviest of cascades of arrows (and in double time!), the AI is able to keep up bar a few hiccups!&lt;/p&gt;
+
+&lt;p&gt;This problem is a simple computer vision problem. Take the screen, find the arrows, and press the correct arrow key at the correct time. Great. Let’s code it up!&lt;/p&gt;
+
+&lt;h2 id=&quot;disclaimer&quot;&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;This AI may be considered a “hacking” or “cheating” tool. As such, I have made sure that it does not impact leaderboards or affect other players in any way. This includes logging off my account, playing only unranked songs, using unranked mods (score V2), etc. As such, I will not be releasing the full code. If you would like to demo the AI, consider the integrity of the leaderboards and don’t cheat.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Q: &lt;em&gt;“TL;DR - videos?”&lt;/em&gt;&lt;br /&gt;
+A: You got it friend! Performance videos are all the way at the bottom!&lt;/p&gt;
+
+&lt;p&gt;We want to press the arrows when they reach a certain spot on the screen. What we need is a way to detect these arrows. We can do this using computer vision. There were two methods considered for this step: capturing a whole screen and capturing a single pixel.&lt;/p&gt;
+
+&lt;p&gt;If we capture a whole screen, we would have to find all the arrows on the screen, calculate their distances from the top, and queue a set of button presses. The advantage to this method is that the screen would only need to be captured once every cycle of cascading arrows. This would allow the AI to perform well in low framerate settings as much of the performance is based in calculation. The disadvantage to this method is that the AI would have to scan whole columns for arrows as well as calculate when to press the arrow keys.&lt;/p&gt;
+
+&lt;p&gt;If we capture a single pixel, we would be detecting whether an arrow is at the pressing point. The advantage to this method is that the AI only needs to see four pixels on the screen: one for each arrow. This allows the code to be simple without any big calculations. The disadvantage to this method is that it is entirely framerate dependent. Low frames means low performance since the screen capture may miss arrows passing the pixel.&lt;/p&gt;
+
+&lt;p&gt;Pressing the arrow keys is simple: we just need to confer keyboard control to the AI.&lt;/p&gt;
+
+&lt;p&gt;One last thing. There are two “styles” to playing Osu!Mania as well as other mania games. These are long-note and short-note. In long-note settings, there are many arrows that need to be held down for a period of time and need to be released at the correct time. In short-note settings, the majority of the arrows are a simple tap without holding. You will see that this AI can practically &lt;em&gt;only&lt;/em&gt; perform in short-note settings. I say “only” because it can still do long-note if the song is easier.&lt;/p&gt;
+
+&lt;p&gt;The goal of this project is to apply the basics of computer vision to read pixel data and act according to the data given.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;method&quot;&gt;&lt;strong&gt;Method&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;If you are one to read good results only, skip the first runthrough. My initial work resulted in a working AI but it was nowhere near as good as my second runthrough.&lt;/p&gt;
+
+&lt;h3 id=&quot;first-runthrough-pilopencv&quot;&gt;First Runthrough: PIL/OpenCV&lt;/h3&gt;
+&lt;p&gt;First things first: we must find a way to capture the screen. I found &lt;a href=&quot;https://pythonprogramming.net/game-frames-open-cv-python-plays-gta-v/&quot;&gt;this project&lt;/a&gt;, which captures the screen in real time to drive in GTA V (really cool!). And so, I learned a bit about Python Imaging Library and its updated fork, &lt;a href=&quot;https://pillow.readthedocs.io/en/stable/&quot;&gt;Pillow&lt;/a&gt;. I also learned about &lt;a href=&quot;https://opencv.org/&quot;&gt;OpenCV&lt;/a&gt;. My method was largely the same as his. I set the Osu! resolution to 800x600 in windowed mode. I then put the window at the top-left corner of the screen. To simplify things, I converted the AI’s screen color to grayscale. Here is the my edit of the starter code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def screen_record():
+    while(True):
+        printscreen =  np.array(ImageGrab.grab(bbox=(388,50,681,150)))
+        printscreen = cv2.cvtColor(printscreen, cv2.COLOR_BGR2GRAY)
+        cv2.imshow('ProBot5000',cv2.cvtColor(printscreen, cv2.COLOR_BGR2RGB))
+        if cv2.waitKey(25) &amp;amp; 0xFF == ord('q'):
+            cv2.destroyAllWindows()
+            break
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The code takes a picture of the boxed area and converts it to an array using &lt;a href=&quot;http://www.numpy.org/&quot;&gt;numpy&lt;/a&gt;. It then converts the color scheme to grayscale and replicates what the AI sees in another window. Great! The AI can now see the screen. The method of performance chosen was the single pixel method. Thus, there are only four spots that the computer needs to look at. I found these spots manually by changing the pixel color of the screen and moving the coordinates until they were in the correct spot.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/VG0h41v.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The pixel positions are not perfect, but they should do the job. Those white pixels are just for show. The AI is actually reading the pixel data of the pixel directly under those white pixels so they aren’t interrupting the program!&lt;/p&gt;
+
+&lt;p&gt;Now we need a way to press buttons. I used &lt;a href=&quot;https://github.com/moses-palmer/pynput&quot;&gt;pynput&lt;/a&gt; for this and a bunch of if else statements for this.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def pixel_color(image):
+    color1 = image[55 + OFFSET,30]
+    ...
+    if 40 &amp;lt; color1 &amp;lt; 60:
+        keyboard.press('z')
+    else:
+        keyboard.release('z')
+    ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The rest of the buttons are essentially the same thing times four. I remapped the arrow keys to what I normally play with. Z = left, x = down, comma = up, period = right. Don’t worry about OFFSET. It’s just there to adjust for error in screen scroll timings.&lt;/p&gt;
+
+&lt;p&gt;The function takes in a grayscale image and pulls the pixel color at certain coordinates. Normally, the background is black (pixel value is ~0). When the button is pressed, the background is white (~255). Arrow pixel values are ~50. Thus, when the pixel we are looking at is in the range 40 &amp;lt; pixelcolor &amp;lt; 60, we know there is an arrow on the pixel, so the AI must press the button. Otherwise, it releases the button. Why not do != 0 and != 255? I programmed it my way because there is sometimes noise. Particularly, there is an off-white that indicates the arrow has been successfully pressed as well as an off-white outline of the arrows.&lt;/p&gt;
+
+&lt;p&gt;Cool. The AI can perform now. Let’s see it in action!&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/vFVAJUjCNP0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Well, that was… subpar to say the least. Why did this happen? If you read the original &lt;a href=&quot;ttps://pythonprogramming.net/game-frames-open-cv-python-plays-gta-v/&quot;&gt;GTA V project&lt;/a&gt;, you will see that Sentdex only achieved 12-13 frames per second. My computer was similar: 9-12 frames per second only. This is totally playable, but really the arrows come too fast and the AI would miss them quite often. Let’s not even discuss harder songs. Note: this performance was recorded after the hold bug was fixed (see second runthrough).&lt;/p&gt;
+
+&lt;p&gt;We need a way to capture the screen much faster.&lt;/p&gt;
+
+&lt;h3 id=&quot;second-runthrough-win32ui&quot;&gt;Second Runthrough: win32ui&lt;/h3&gt;
+&lt;p&gt;I looked for a few days to try to find a way to minimize the work required to maximize the screen capture. One way to do this was to get rid of the output screen and all print statements. Unfortunately, we won’t be able to see what the AI sees anymore… The real game-changer, however, was to forget about capturing the screen and only capturing the four pixels necessary. Enter: &lt;a href=&quot;https://stackoverflow.com/questions/23147244/most-efficient-quickest-way-to-parse-pixel-data-with-python&quot;&gt;this thread&lt;/a&gt;. The poster used win32ui to process pixels directly from the screen at “roughly 16000 iterations a second.” I didn’t need it that fast, but boy, that’s fast.&lt;/p&gt;
+
+&lt;p&gt;I borrowed his code and modified it for my needs. Right off the bat, there was a bug. FindWindow(x,y). When Osu! is idle, its window name is simply “osu!” When a song starts, however, it’s “osu!” plus the name of the song. The window name was &lt;em&gt;dynamic&lt;/em&gt; and this program could only capture static windows.&lt;/p&gt;
+
+&lt;p&gt;I knew how to solve this bug though. I simply need a way to find if “osu!” was in the name or not. I’m not so technically advanced, so after about a day’s worth of &lt;a href=&quot;http://timgolden.me.uk/pywin32-docs/win32ui.html&quot;&gt;documentation&lt;/a&gt;-reading and Google-searching, I found something that suited my needs.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;osuwd = win32gui.GetWindowText(win32gui.GetForegroundWindow())
+    if 'osu!  -' in osuwd:
+        print('We found the game!')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This code uses win32gui’s GetForegroundWindow to target the active window. The rest was easy. Using GetWindowText, if “osu” is in the title, we found the game! More specifically, I modified the name syntax so that the AI will only perform when it is not in the lobby, aka playing a song. We can now use FindWindow() and GetWindowDC() to get the window’s handle to play with the pixels.&lt;/p&gt;
+
+&lt;p&gt;The pixel detection and button pressing is similar to the first runthrough. This time however, the pixel values were different. Black was ~0, white was ~16500000, and arrow was ~850000.&lt;/p&gt;
+
+&lt;p&gt;The AI performed well, but two major bugs emerged.&lt;/p&gt;
+
+&lt;p&gt;First, the AI kept releasing the buttons whenever it needed to hold! This was diagnosed by running a real-time pixel value getter. This is where I found out that successfully pressing the arrow causes it to blink an off-white, thereby causing the AI to think that it should release the key. The bug was fixed by giving the AI a larger range of 800000 &amp;lt; pixel color &amp;lt; 16000000.&lt;/p&gt;
+
+&lt;p&gt;Second, now the AI kept holding the button for too long! This is because it reads the off-white of the long-note completion as noise and therefore continues to hold the button. I found an okay solution. Whenever there are long notes, there will be a gray trail following the arrow. If the AI can detect that the trail is about to end, it can release the button accordingly. This can be done in two lines (per arrow key):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if 800000 &amp;lt; pixelcolor &amp;lt; 16000000:
+    keyboard.press('x')
+    if grayarea &amp;lt; 800000:               # the edit starts here
+        keyboard.release('x')           # and ends here
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A nested if. If the gray area is not gray, then release the button. Now the AI reads 8 pixel locations. Small bug though: now instead of releasing on time, the AI will release, then press quickly again! No matter; simple long notes are now performed perfectly. Unfortunately, due to a bug, fast songs with multiple long notes are not possible for the AI just yet.&lt;/p&gt;
+
+&lt;p&gt;This method has led to the AI performing one of the top ten most difficult songs at 99.88% accuracy. That’s rank 3rd on the leaderboard if it had an account! Yes, there are people better than my AI…&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;discussion&quot;&gt;&lt;strong&gt;Discussion&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Let’s recap.&lt;/p&gt;
+
+&lt;p&gt;The goal of this project was to create an AI that can play Osu!Mania. To do this, the AI must be able to read four pixel values on the screen and press a button corresponding to the pixel location when there is an arrow. The first runthrough utilized PIL and OpenCV to capture the screen and retrieve/analyze pixels. It used pynput to generate keyboard presses. This model did pass the original goal of the project: to play Osu!Mania, although it played at a beginner level. To take it to the next step, the code was redone using win32ui to directly analyze pixels. It also used pynput to generate keyboard presses. This model exceeded expectations, performing some of the hardest songs nearly perfectly. A drawback is that it can only perform short note songs.&lt;/p&gt;
+
+&lt;p&gt;This project took me through a journey of libraries and problem solving. I have thoroughly enjoyed working to make this AI happen. From the get-go, I was able to expose myself to OpenCV and PIL, some powerful libraries used in computer vision. Most of my effort was spent on reading the documentation for each library as well as other people’s problems, trying to find ways to solve various problems I had encountered. When these problems were fixed, the AI would inch closer to being ready. However, those solutions would open more doors for new bugs.&lt;/p&gt;
+
+&lt;p&gt;Some of the smaller problems were solved by simple changes. For example, increasing the range of pixel values that can be considered an arrow solved the issue of noise.&lt;/p&gt;
+
+&lt;p&gt;The first major problem I had was that the framerate was too low for Osu!Mania when using PIL/OpenCV. This led me through lots of research on how to make the screen capture faster and how to directly acquire pixel data from the screen. The solution to this bug was win32ui.&lt;/p&gt;
+
+&lt;p&gt;The second major problem I had was that win32ui.FindWindow() was not working for my dynamic window name. The solution was to read the name to detect whether “osu!” was present and change the stored name to whatever the actual name of the window was. I knew this solution fairly early but I didn’t know how to implement it using win32ui. The solution was win32gui.GetWindowText() and GetForegroundWindow(), which got the full name of the window, allowing me to check whether “osu!” was present.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-bugs&quot;&gt;Current Bugs&lt;/h3&gt;
+&lt;p&gt;There is one particular bug that I know the problem of: After releasing every long note, the AI likes to tap the button it just released again. I suspect that this is due to win32ui reading the pixels too fast. Recall that the AI reads both where the arrow is and whether there is gray area underneath the arrow left. When it notices no more gray area, it will release the button. However, it will reread the pixel color and find that the arrow is still red, so it presses again. This may be fixed by giving the AI a tighter time to play with or by adding a small wait after the releasing of long notes. This bug causes expert songs with extensive long notes to be unplayable.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/h2tANAM4MAkD0o4Dkn/giphy.gif&quot; alt=&quot;gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is another bug whose origin I do not know of at the moment. It seems to be an out-of-sync issue where some notes, including short notes, are missed completely. I don’t believe that it is an arrow overlap issue because there are certain songs that the AI can play perfectly with overlapping arrows. This bug is infrequent; it causes the AI to lose at most 1% from a song.&lt;/p&gt;
+
+&lt;h3 id=&quot;applications-and-future&quot;&gt;Applications and Future&lt;/h3&gt;
+&lt;p&gt;As this project was part of an umbrella project, the direct application of my learning is that I can use pixel detection in web-based Tetris. It will be used to gather and store pixel data from the 10x20 Tetris board so that an AI can calculate the best moves.&lt;/p&gt;
+
+&lt;p&gt;The project can also be used in many other game programs in the same exact way as in this project. For example, in games, it is common to use health potions when a player’s health is low. By detecting the pixel values of a health bar, the AI can determine whether a player needs to use a health potion and automatically do it for the player. Win32ui would practically be instant. Even with PIL/OpenCV, the reaction time of the AI would be ~0.1 seconds, which is faster than most humans. Of course, this is a cheating tool.&lt;/p&gt;
+
+&lt;p&gt;If the major bugs are fixed, we may see this AI crush both short note songs as well as long note songs.&lt;/p&gt;
+
+&lt;p&gt;Currently, the AI only works in 800x600 resolution screens. Pixel averaging and image screening prior to a game start may allow the AI to dynamically set the pixel location on any screen resolution.&lt;/p&gt;
+
+&lt;p&gt;Some sort of way to prevent people from using the AI if they are logged into an account (and thus have access to leaderboards) would be ideal for the AI. It could prevent cheating and abuse using this program.&lt;/p&gt;
+
+&lt;p&gt;Overall, I am very satisfied with my AI. It performs short note songs very well (I myself am a short note player; I hate long note songs). This AI has done everything I needed it to do. Maybe one day, I can make an AI that actually tries to learn how to play the game on its own.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;extra-videos&quot;&gt;&lt;strong&gt;Extra Videos&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;If you want to see other hard songs in action, they are here for you to enjoy! Thanks to Osu!’s replay function, I was able to record these performances at 1920x1080 resolution even though they were originally performed at 800x600.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CAvxELmeRxM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;The Deceit/The Violation - one of the hardest 4-key songs. Result: 99.88% accuracy. This is the best that the AI has ever done!&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/wbdUykc1nBY&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Blastix Riotz - also regarded as one of the hardest 4-key songs. Result: 98.36% accuracy.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/WtX29w5yFX8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Imperishable Night - Another one of the hardest 4-key songs. Result: 98.79% accuracy.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/spxkJAVBGuc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Mama Minta Pulsa - an average difficult song. Result: 99.63% accuracy.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/LD2178n5znk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Hitorigoto - just an average difficult song. Result: 96.86% accuracy. One of the better long note performances by the AI.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/V2z3Xbw3w4g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Water Horizon - an average difficult song. Result: 95.60% accuracy. You can clearly see the long note struggle.&lt;/p&gt;
+
+&lt;p&gt;And just for show…&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fjBXuxXfQeg&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Heavenly Haven - average difficult song. Result: FAIL. The long notes do horrors to the AI… :( I couldn’t even save a replay because Osu! does not save failure, so the screen resolution is 800x600.&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">Osu!Mania is a variant of Stepmania and Dance Dance Revolution. In the game, a player is presented a cascade of arrows climbing up their screen. The player must press the corresponding arrow keys when the arrows reach the top of the screen. These arrows sync up to the beats of the songs, but this is irrelevant to the AI. Before we begin, allow me to show you a totally non-cherrypicked performance of the AI on one of the toughest beatmaps in the game. Gifs don’t do the AI justice - check out proper videos at the bottom. As you can see, even in the heaviest of cascades of arrows (and in double time!), the AI is able to keep up bar a few hiccups! This problem is a simple computer vision problem. Take the screen, find the arrows, and press the correct arrow key at the correct time. Great. Let’s code it up!</summary></entry><entry><title type="html">Project Proposal: AI Plays TetrisFriends</title><link href="http://localhost:4000/Project-Proposal-AI-Plays-Tetrisfriends/" rel="alternate" type="text/html" title="Project Proposal: AI Plays TetrisFriends" /><published>2019-03-01T18:09:00-05:00</published><updated>2019-03-01T18:09:00-05:00</updated><id>http://localhost:4000/Project-Proposal-AI-Plays-Tetrisfriends</id><content type="html" xml:base="http://localhost:4000/Project-Proposal-AI-Plays-Tetrisfriends/">&lt;h3 id=&quot;project-name-ai-plays-tetrisfriends&quot;&gt;Project name: AI Plays TetrisFriends&lt;/h3&gt;
+
+&lt;p&gt;This four-part project will attempt to train an AI to play Tetris on &lt;a href=&quot;Tetrisfriends.com&quot;&gt;TetrisFriends.com&lt;/a&gt;. It will be able to pull data non-invasively from the website using screen capture and make calculations accordingly. It will succeed in playing Tetris, and perhaps optimizing its score. The method of training chosen is reinforcement learning.&lt;/p&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Tetris is, in essence, an optimization game. The game board is a 10 x 20 grid of blocks. A player receives one of seven different pieces consisting of four blocks at a time and must place them in a way that whole rows are filled. The pieces and their respective names are as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://qph.fs.quoracdn.net/main-qimg-356e2b21c801381db2890dab49a9ea88&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Fig 1: Playable Tetris pieces [Tetrominoes] &lt;a href=&quot;https://www.quora.com/What-are-the-different-blocks-in-Tetris-called-Is-there-a-specific-name-for-each-block&quot;&gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;When a whole row is filled, the row disappears and all rows above it are moved down. A player loses when they “top-off” - when a tetromino exceeds the 20-block height restriction. The goal of the game is to clear as many rows, “lines,” as quickly as possible.&lt;/p&gt;
+
+&lt;p&gt;In general, the player receives a better score if more lines are cleared at once or are cleared consecutively. The scoring system will be more thoroughly explained in the actual project. Exceptions are special clears called t-spins and perfect clears, which score high amounts of points relative to lines cleared. It will be interesting to see whether the AI can find these methods.&lt;/p&gt;
+
+&lt;p&gt;The optimization comes naturally with reinforcement learning. The AI will score points whenever it places tetrominos as well as clear lines. The more points it receives, the more likely it will try to replicate that clear.&lt;/p&gt;
+
+&lt;h3 id=&quot;why&quot;&gt;Why?&lt;/h3&gt;
+&lt;p&gt;This project will touch upon several different problems which may be solved with mini-projects. Its primary purpose is to learn about how to solve problems using various technologies. Tetris will not be recreated in a private environment because I want the AI to extract information directly from the screen.&lt;/p&gt;
+
+&lt;p&gt;Besides this, I also wanted to see whether the AI can calculate the most optimal strategies for clearing lines. There are many methods to play: 2-wide combo, 3-wide combo, 4-wide combo, back-to-back tetris, t-spin, perfect clear, middle combo variants, and more. If the AI can find the best method to score, it will be good to utilize that method in online play.&lt;/p&gt;
+
+&lt;h2 id=&quot;method&quot;&gt;Method&lt;/h2&gt;
+&lt;p&gt;There will be four smaller projects which culminate to this project, all of which will utilize technologies and code relevant to the main project. These are: an osu!mania bot, a sudoku extractor, a general reinforcement learning program, and finally, AI Plays TetrisFriends.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-1-osumaniabot&quot;&gt;Part 1: Osu!ManiaBOT&lt;/h3&gt;
+&lt;p&gt;Osu!Mania, part of &lt;a href=&quot;https://osu.ppy.sh/home&quot;&gt;Osu!&lt;/a&gt;, is a game like Stepmania or Dance Dance Revolution. Using a &lt;a href=&quot;https://osu.ppy.sh/community/forums/topics/512453&quot;&gt;reskin&lt;/a&gt;, I can recreate the arrow mechanisms used in Stepmania and Dance Dance Revolution. The goal of the game is to press the corresponding arrow key when it reaches the top of the screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ppy.sh/ec560eab801b2fab6d8b816956988ed3bc00252a/68747470733a2f2f7075752e73682f7a3454756d2e6a7067&quot; alt=&quot;screenshot&quot; /&gt;
+&lt;em&gt;Figure 2: Osu!Mania reskin &lt;a href=&quot;https://osu.ppy.sh/community/forums/topics/512453&quot;&gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore, in order to succeed, a program must be able to detect whether an arrow is at a certain point and press the matching key. The pixel detection and key inputs will also be used in the main project.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-2-sudoku-extractor&quot;&gt;Part 2: Sudoku Extractor&lt;/h3&gt;
+&lt;p&gt;Sudoku is a puzzle game played on a 9x9 grid where the numbers 1-9 may only be placed once per row, column, and 3x3 box.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg/250px-Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Figure 3: Typical Sudoku Puzzle &lt;a href=&quot;https://en.wikipedia.org/wiki/Sudoku&quot;&gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to extract the sudoku from various web pages, the program must be able to detect whether there is a grid present and pull numbers from the grid. The number recognition likely needs to be trained using a neural network. In the main project, the capacity to detect a grid will be used to find the environment of the Tetris game, and the number recognition will be used to pull the score for calculations.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-3-reinforcement-learning&quot;&gt;Part 3: Reinforcement Learning&lt;/h3&gt;
+&lt;p&gt;A model of reinforcement learning on a simple game will be created in order to learn about the training method. Currently, no game has been selected for the training. I anticipate using TensorFlow for the project. This relates to the main project as the Tetris AI will also be using reinforcement learning.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-4-ai-plays-tetrisfriends&quot;&gt;Part 4: AI Plays TetrisFriends&lt;/h3&gt;
+&lt;p&gt;The final part of the project will be to combine everything into one project. The AI will be able to find the Tetris grid, pull pixel data from its 200 grid blocks, find its score and calculate accordingly, and just play the game. It will be trained in Tetris Marathon, a mode that ends after 15 levels.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/SHwNdOw.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Figure 4: Tetris Marathon Play Space &lt;a href=&quot;https://www.tetrisfriends.com/games/Marathon/game.php&quot;&gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;further-research&quot;&gt;Further Research&lt;/h2&gt;
+&lt;p&gt;Every part of this project has the potential to do more than it is intended to do. As I find inspiration or new features, I may revisit the projects and add to them.&lt;/p&gt;
+
+&lt;p&gt;Hopefully everything works out okay. I’m excited to start this journey and to report on it!&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">Project name: AI Plays TetrisFriends This four-part project will attempt to train an AI to play Tetris on TetrisFriends.com. It will be able to pull data non-invasively from the website using screen capture and make calculations accordingly. It will succeed in playing Tetris, and perhaps optimizing its score. The method of training chosen is reinforcement learning.</summary></entry><entry><title type="html">Welcome to my Blog</title><link href="http://localhost:4000/welcome-to-my-blog/" rel="alternate" type="text/html" title="Welcome to my Blog" /><published>2019-02-28T18:19:01-05:00</published><updated>2019-02-28T18:19:01-05:00</updated><id>http://localhost:4000/welcome-to-my-blog</id><content type="html" xml:base="http://localhost:4000/welcome-to-my-blog/">&lt;p&gt;Hi, I’m Justin. Welcome to my blog! I am a master’s student in CS coming from a background in biology and chemistry. My current interest is in creating a working AI model to play various puzzle and strategy games. The list so far is Tic-Tac-Toe, Connect Four, Sudoku, and Tetris. However, I am quite lazy to recreate the games in a private environment. This led to an interesting way to approach the games as you will soon see.&lt;/p&gt;
+
+&lt;p&gt;Why CS?&lt;/p&gt;
+
+&lt;p&gt;I changed to CS because I found that CS, particularly the subfield of AI, has so many cool projects and problems to enjoy. When I code something up, I’m always feeling a rush to find out why things work, how to make them better, and what other features I can implement in the program. I am constantly learning new ways to approach and solve problems. This mental stimulation coupled with the depth of the field (as well as generally being decent/good at programming) has heavily impacted my shift into CS.&lt;/p&gt;
+
+&lt;p&gt;I started undertaking small personal projects about a month ago. Throughout the journey, I have had some successes as well as some failures. As a scientist, I have the urge to report on my findings. I’d love to share what I learn as both a way to educate readers and to document my work.&lt;/p&gt;
+
+&lt;p&gt;In the next few days, I will write up a proposal to my current umbrella project. I will also report on my journey through creating ManiaBot. After that, the posts will slow down until I am ready to report on the next step.&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">Hi, I’m Justin. Welcome to my blog! I am a master’s student in CS coming from a background in biology and chemistry. My current interest is in creating a working AI model to play various puzzle and strategy games. The list so far is Tic-Tac-Toe, Connect Four, Sudoku, and Tetris. However, I am quite lazy to recreate the games in a private environment. This led to an interesting way to approach the games as you will soon see.</summary></entry></feed>

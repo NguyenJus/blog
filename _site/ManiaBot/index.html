@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<title>Osu!Mania Bot: Simple Computer Vision AI Using Python | Justin&#39;s Blog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Osu!Mania is a variant of Stepmania and Dance Dance Revolution. In the game, a player is presented a cascade of arrows climbing up their screen. The player m...">
+<meta name="author" content="Justin Nguyen">
+<meta name="generator" content="Jekyll v3.8.5">
+<link rel="canonical" href="http://localhost:4000/ManiaBot/">
+<link rel="stylesheet" href="/assets/css/index.css">
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/contrast.css">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Justin's Blog" />
+
+
+
+
+<body class="light">
+
+<header>
+  <h1><a href="/">Justin&#39;s Blog</a></h1>
+  <nav><a href="/">Home</a><a href="/archive/">Archive</a><a href="/resources/">Resources</a>
+
+    <a class="page-link" href="https://nguyenjus.github.io">Website</a> <!-- This is custom website edge case -->
+
+  </nav>
+  <nav><a class="icon" href="contact"><svg><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a class="icon" href="https://github.com/nguyenjus"><svg><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a class="icon" href="feed.xml"><svg><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+</header>
+
+<article>
+  <header><h1><a href="/ManiaBot/">Osu!Mania Bot: Simple Computer Vision AI Using Python</a></h1>
+    <time datetime="2019-03-03T19:13:00-05:00">03 March 2019</time>
+  </header>
+<p>Osu!Mania is a variant of Stepmania and Dance Dance Revolution. In the game, a player is presented a cascade of arrows climbing up their screen. The player must press the corresponding arrow keys when the arrows reach the top of the screen. These arrows sync up to the beats of the songs, but this is irrelevant to the AI.</p>
+
+<p>Before we begin, allow me to show you a totally non-cherrypicked performance of the AI on one of the toughest beatmaps in the game.</p>
+
+<p><img src="https://media.giphy.com/media/vvyZiOLx1EA1yRrXzQ/giphy.gif" alt="gif" /></p>
+
+<p>Gifs don’t do the AI justice - check out proper videos at the bottom. As you can see, even in the heaviest of cascades of arrows (and in double time!), the AI is able to keep up bar a few hiccups!</p>
+
+<p>This problem is a simple computer vision problem. Take the screen, find the arrows, and press the correct arrow key at the correct time. Great. Let’s code it up!</p>
+
+<h2 id="disclaimer"><strong>Disclaimer</strong></h2>
+<p>This AI may be considered a “hacking” or “cheating” tool. As such, I have made sure that it does not impact leaderboards or affect other players in any way. This includes logging off my account, playing only unranked songs, using unranked mods (score V2), etc. As such, I will not be releasing the full code. If you would like to demo the AI, consider the integrity of the leaderboards and don’t cheat.</p>
+
+<hr />
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p>Q: <em>“TL;DR - videos?”</em><br />
+A: You got it friend! Performance videos are all the way at the bottom!</p>
+
+<p>We want to press the arrows when they reach a certain spot on the screen. What we need is a way to detect these arrows. We can do this using computer vision. There were two methods considered for this step: capturing a whole screen and capturing a single pixel.</p>
+
+<p>If we capture a whole screen, we would have to find all the arrows on the screen, calculate their distances from the top, and queue a set of button presses. The advantage to this method is that the screen would only need to be captured once every cycle of cascading arrows. This would allow the AI to perform well in low framerate settings as much of the performance is based in calculation. The disadvantage to this method is that the AI would have to scan whole columns for arrows as well as calculate when to press the arrow keys.</p>
+
+<p>If we capture a single pixel, we would be detecting whether an arrow is at the pressing point. The advantage to this method is that the AI only needs to see four pixels on the screen: one for each arrow. This allows the code to be simple without any big calculations. The disadvantage to this method is that it is entirely framerate dependent. Low frames means low performance since the screen capture may miss arrows passing the pixel.</p>
+
+<p>Pressing the arrow keys is simple: we just need to confer keyboard control to the AI.</p>
+
+<p>One last thing. There are two “styles” to playing Osu!Mania as well as other mania games. These are long-note and short-note. In long-note settings, there are many arrows that need to be held down for a period of time and need to be released at the correct time. In short-note settings, the majority of the arrows are a simple tap without holding. You will see that this AI can practically <em>only</em> perform in short-note settings. I say “only” because it can still do long-note if the song is easier.</p>
+
+<p>The goal of this project is to apply the basics of computer vision to read pixel data and act according to the data given.</p>
+
+<hr />
+<h2 id="method"><strong>Method</strong></h2>
+<p>If you are one to read good results only, skip the first runthrough. My initial work resulted in a working AI but it was nowhere near as good as my second runthrough.</p>
+
+<h3 id="first-runthrough-pilopencv">First Runthrough: PIL/OpenCV</h3>
+<p>First things first: we must find a way to capture the screen. I found <a href="https://pythonprogramming.net/game-frames-open-cv-python-plays-gta-v/">this project</a>, which captures the screen in real time to drive in GTA V (really cool!). And so, I learned a bit about Python Imaging Library and its updated fork, <a href="https://pillow.readthedocs.io/en/stable/">Pillow</a>. I also learned about <a href="https://opencv.org/">OpenCV</a>. My method was largely the same as his. I set the Osu! resolution to 800x600 in windowed mode. I then put the window at the top-left corner of the screen. To simplify things, I converted the AI’s screen color to grayscale. Here is the my edit of the starter code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def screen_record():
+    while(True):
+        printscreen =  np.array(ImageGrab.grab(bbox=(388,50,681,150)))
+        printscreen = cv2.cvtColor(printscreen, cv2.COLOR_BGR2GRAY)
+        cv2.imshow('ProBot5000',cv2.cvtColor(printscreen, cv2.COLOR_BGR2RGB))
+        if cv2.waitKey(25) &amp; 0xFF == ord('q'):
+            cv2.destroyAllWindows()
+            break
+</code></pre></div></div>
+
+<p>The code takes a picture of the boxed area and converts it to an array using <a href="http://www.numpy.org/">numpy</a>. It then converts the color scheme to grayscale and replicates what the AI sees in another window. Great! The AI can now see the screen. The method of performance chosen was the single pixel method. Thus, there are only four spots that the computer needs to look at. I found these spots manually by changing the pixel color of the screen and moving the coordinates until they were in the correct spot.</p>
+
+<p><img src="https://i.imgur.com/VG0h41v.png" alt="img" /></p>
+
+<p>The pixel positions are not perfect, but they should do the job. Those white pixels are just for show. The AI is actually reading the pixel data of the pixel directly under those white pixels so they aren’t interrupting the program!</p>
+
+<p>Now we need a way to press buttons. I used <a href="https://github.com/moses-palmer/pynput">pynput</a> for this and a bunch of if else statements for this.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def pixel_color(image):
+    color1 = image[55 + OFFSET,30]
+    ...
+    if 40 &lt; color1 &lt; 60:
+        keyboard.press('z')
+    else:
+        keyboard.release('z')
+    ...
+</code></pre></div></div>
+<p>The rest of the buttons are essentially the same thing times four. I remapped the arrow keys to what I normally play with. Z = left, x = down, comma = up, period = right. Don’t worry about OFFSET. It’s just there to adjust for error in screen scroll timings.</p>
+
+<p>The function takes in a grayscale image and pulls the pixel color at certain coordinates. Normally, the background is black (pixel value is ~0). When the button is pressed, the background is white (~255). Arrow pixel values are ~50. Thus, when the pixel we are looking at is in the range 40 &lt; pixelcolor &lt; 60, we know there is an arrow on the pixel, so the AI must press the button. Otherwise, it releases the button. Why not do != 0 and != 255? I programmed it my way because there is sometimes noise. Particularly, there is an off-white that indicates the arrow has been successfully pressed as well as an off-white outline of the arrows.</p>
+
+<p>Cool. The AI can perform now. Let’s see it in action!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vFVAJUjCNP0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Well, that was… subpar to say the least. Why did this happen? If you read the original <a href="ttps://pythonprogramming.net/game-frames-open-cv-python-plays-gta-v/">GTA V project</a>, you will see that Sentdex only achieved 12-13 frames per second. My computer was similar: 9-12 frames per second only. This is totally playable, but really the arrows come too fast and the AI would miss them quite often. Let’s not even discuss harder songs. Note: this performance was recorded after the hold bug was fixed (see second runthrough).</p>
+
+<p>We need a way to capture the screen much faster.</p>
+
+<h3 id="second-runthrough-win32ui">Second Runthrough: win32ui</h3>
+<p>I looked for a few days to try to find a way to minimize the work required to maximize the screen capture. One way to do this was to get rid of the output screen and all print statements. Unfortunately, we won’t be able to see what the AI sees anymore… The real game-changer, however, was to forget about capturing the screen and only capturing the four pixels necessary. Enter: <a href="https://stackoverflow.com/questions/23147244/most-efficient-quickest-way-to-parse-pixel-data-with-python">this thread</a>. The poster used win32ui to process pixels directly from the screen at “roughly 16000 iterations a second.” I didn’t need it that fast, but boy, that’s fast.</p>
+
+<p>I borrowed his code and modified it for my needs. Right off the bat, there was a bug. FindWindow(x,y). When Osu! is idle, its window name is simply “osu!” When a song starts, however, it’s “osu!” plus the name of the song. The window name was <em>dynamic</em> and this program could only capture static windows.</p>
+
+<p>I knew how to solve this bug though. I simply need a way to find if “osu!” was in the name or not. I’m not so technically advanced, so after about a day’s worth of <a href="http://timgolden.me.uk/pywin32-docs/win32ui.html">documentation</a>-reading and Google-searching, I found something that suited my needs.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osuwd = win32gui.GetWindowText(win32gui.GetForegroundWindow())
+    if 'osu!  -' in osuwd:
+        print('We found the game!')
+</code></pre></div></div>
+
+<p>This code uses win32gui’s GetForegroundWindow to target the active window. The rest was easy. Using GetWindowText, if “osu” is in the title, we found the game! More specifically, I modified the name syntax so that the AI will only perform when it is not in the lobby, aka playing a song. We can now use FindWindow() and GetWindowDC() to get the window’s handle to play with the pixels.</p>
+
+<p>The pixel detection and button pressing is similar to the first runthrough. This time however, the pixel values were different. Black was ~0, white was ~16500000, and arrow was ~850000.</p>
+
+<p>The AI performed well, but two major bugs emerged.</p>
+
+<p>First, the AI kept releasing the buttons whenever it needed to hold! This was diagnosed by running a real-time pixel value getter. This is where I found out that successfully pressing the arrow causes it to blink an off-white, thereby causing the AI to think that it should release the key. The bug was fixed by giving the AI a larger range of 800000 &lt; pixel color &lt; 16000000.</p>
+
+<p>Second, now the AI kept holding the button for too long! This is because it reads the off-white of the long-note completion as noise and therefore continues to hold the button. I found an okay solution. Whenever there are long notes, there will be a gray trail following the arrow. If the AI can detect that the trail is about to end, it can release the button accordingly. This can be done in two lines (per arrow key):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if 800000 &lt; pixelcolor &lt; 16000000:
+    keyboard.press('x')
+    if grayarea &lt; 800000:               # the edit starts here
+        keyboard.release('x')           # and ends here
+</code></pre></div></div>
+
+<p>A nested if. If the gray area is not gray, then release the button. Now the AI reads 8 pixel locations. Small bug though: now instead of releasing on time, the AI will release, then press quickly again! No matter; simple long notes are now performed perfectly. Unfortunately, due to a bug, fast songs with multiple long notes are not possible for the AI just yet.</p>
+
+<p>This method has led to the AI performing one of the top ten most difficult songs at 99.88% accuracy. That’s rank 3rd on the leaderboard if it had an account! Yes, there are people better than my AI…</p>
+
+<hr />
+<h2 id="discussion"><strong>Discussion</strong></h2>
+<p>Let’s recap.</p>
+
+<p>The goal of this project was to create an AI that can play Osu!Mania. To do this, the AI must be able to read four pixel values on the screen and press a button corresponding to the pixel location when there is an arrow. The first runthrough utilized PIL and OpenCV to capture the screen and retrieve/analyze pixels. It used pynput to generate keyboard presses. This model did pass the original goal of the project: to play Osu!Mania, although it played at a beginner level. To take it to the next step, the code was redone using win32ui to directly analyze pixels. It also used pynput to generate keyboard presses. This model exceeded expectations, performing some of the hardest songs nearly perfectly. A drawback is that it can only perform short note songs.</p>
+
+<p>This project took me through a journey of libraries and problem solving. I have thoroughly enjoyed working to make this AI happen. From the get-go, I was able to expose myself to OpenCV and PIL, some powerful libraries used in computer vision. Most of my effort was spent on reading the documentation for each library as well as other people’s problems, trying to find ways to solve various problems I had encountered. When these problems were fixed, the AI would inch closer to being ready. However, those solutions would open more doors for new bugs.</p>
+
+<p>Some of the smaller problems were solved by simple changes. For example, increasing the range of pixel values that can be considered an arrow solved the issue of noise.</p>
+
+<p>The first major problem I had was that the framerate was too low for Osu!Mania when using PIL/OpenCV. This led me through lots of research on how to make the screen capture faster and how to directly acquire pixel data from the screen. The solution to this bug was win32ui.</p>
+
+<p>The second major problem I had was that win32ui.FindWindow() was not working for my dynamic window name. The solution was to read the name to detect whether “osu!” was present and change the stored name to whatever the actual name of the window was. I knew this solution fairly early but I didn’t know how to implement it using win32ui. The solution was win32gui.GetWindowText() and GetForegroundWindow(), which got the full name of the window, allowing me to check whether “osu!” was present.</p>
+
+<h3 id="current-bugs">Current Bugs</h3>
+<p>There is one particular bug that I know the problem of: After releasing every long note, the AI likes to tap the button it just released again. I suspect that this is due to win32ui reading the pixels too fast. Recall that the AI reads both where the arrow is and whether there is gray area underneath the arrow left. When it notices no more gray area, it will release the button. However, it will reread the pixel color and find that the arrow is still red, so it presses again. This may be fixed by giving the AI a tighter time to play with or by adding a small wait after the releasing of long notes. This bug causes expert songs with extensive long notes to be unplayable.</p>
+
+<p><img src="https://media.giphy.com/media/h2tANAM4MAkD0o4Dkn/giphy.gif" alt="gif" /></p>
+
+<p>There is another bug whose origin I do not know of at the moment. It seems to be an out-of-sync issue where some notes, including short notes, are missed completely. I don’t believe that it is an arrow overlap issue because there are certain songs that the AI can play perfectly with overlapping arrows. This bug is infrequent; it causes the AI to lose at most 1% from a song.</p>
+
+<h3 id="applications-and-future">Applications and Future</h3>
+<p>As this project was part of an umbrella project, the direct application of my learning is that I can use pixel detection in web-based Tetris. It will be used to gather and store pixel data from the 10x20 Tetris board so that an AI can calculate the best moves.</p>
+
+<p>The project can also be used in many other game programs in the same exact way as in this project. For example, in games, it is common to use health potions when a player’s health is low. By detecting the pixel values of a health bar, the AI can determine whether a player needs to use a health potion and automatically do it for the player. Win32ui would practically be instant. Even with PIL/OpenCV, the reaction time of the AI would be ~0.1 seconds, which is faster than most humans. Of course, this is a cheating tool.</p>
+
+<p>If the major bugs are fixed, we may see this AI crush both short note songs as well as long note songs.</p>
+
+<p>Currently, the AI only works in 800x600 resolution screens. Pixel averaging and image screening prior to a game start may allow the AI to dynamically set the pixel location on any screen resolution.</p>
+
+<p>Some sort of way to prevent people from using the AI if they are logged into an account (and thus have access to leaderboards) would be ideal for the AI. It could prevent cheating and abuse using this program.</p>
+
+<p>Overall, I am very satisfied with my AI. It performs short note songs very well (I myself am a short note player; I hate long note songs). This AI has done everything I needed it to do. Maybe one day, I can make an AI that actually tries to learn how to play the game on its own.</p>
+
+<hr />
+<h2 id="extra-videos"><strong>Extra Videos</strong></h2>
+<p>If you want to see other hard songs in action, they are here for you to enjoy! Thanks to Osu!’s replay function, I was able to record these performances at 1920x1080 resolution even though they were originally performed at 800x600.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CAvxELmeRxM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>The Deceit/The Violation - one of the hardest 4-key songs. Result: 99.88% accuracy. This is the best that the AI has ever done!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wbdUykc1nBY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Blastix Riotz - also regarded as one of the hardest 4-key songs. Result: 98.36% accuracy.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WtX29w5yFX8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Imperishable Night - Another one of the hardest 4-key songs. Result: 98.79% accuracy.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/spxkJAVBGuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Mama Minta Pulsa - an average difficult song. Result: 99.63% accuracy.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LD2178n5znk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Hitorigoto - just an average difficult song. Result: 96.86% accuracy. One of the better long note performances by the AI.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V2z3Xbw3w4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Water Horizon - an average difficult song. Result: 95.60% accuracy. You can clearly see the long note struggle.</p>
+
+<p>And just for show…</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fjBXuxXfQeg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Heavenly Haven - average difficult song. Result: FAIL. The long notes do horrors to the AI… :( I couldn’t even save a replay because Osu! does not save failure, so the screen resolution is 800x600.</p>
+
+  
+  
+</article>
+
+
+<footer>
+  <a class="gray" href="/Flasky/">« Flasky: ManiaBot's Side Gig</a>
+  <a class="gray" href="/Project-Proposal-AI-Plays-Tetrisfriends/">Project Proposal: AI Plays TetrisFriends »</a>
+</footer>
+
+
+
+
+</body>

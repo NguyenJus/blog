@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<title>Project Proposal: AI Plays TetrisFriends | Justin&#39;s Blog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project name: AI Plays TetrisFriends This four-part project will attempt to train an AI to play Tetris on TetrisFriends.com. It will be able to pull data non...">
+<meta name="author" content="Justin Nguyen">
+<meta name="generator" content="Jekyll v3.8.5">
+<link rel="canonical" href="http://localhost:4000/Project-Proposal-AI-Plays-Tetrisfriends/">
+<link rel="stylesheet" href="/assets/css/index.css">
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/contrast.css">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Justin's Blog" />
+
+
+
+
+<body class="light">
+
+<header>
+  <h1><a href="/">Justin&#39;s Blog</a></h1>
+  <nav><a href="/">Home</a><a href="/archive/">Archive</a><a href="/resources/">Resources</a>
+
+    <a class="page-link" href="https://nguyenjus.github.io">Website</a> <!-- This is custom website edge case -->
+
+  </nav>
+  <nav><a class="icon" href="contact"><svg><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a class="icon" href="https://github.com/nguyenjus"><svg><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a class="icon" href="feed.xml"><svg><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+</header>
+
+<article>
+  <header><h1><a href="/Project-Proposal-AI-Plays-Tetrisfriends/">Project Proposal: AI Plays TetrisFriends</a></h1>
+    <time datetime="2019-03-01T18:09:00-05:00">01 March 2019</time>
+  </header>
+<h3 id="project-name-ai-plays-tetrisfriends">Project name: AI Plays TetrisFriends</h3>
+
+<p>This four-part project will attempt to train an AI to play Tetris on <a href="Tetrisfriends.com">TetrisFriends.com</a>. It will be able to pull data non-invasively from the website using screen capture and make calculations accordingly. It will succeed in playing Tetris, and perhaps optimizing its score. The method of training chosen is reinforcement learning.</p>
+
+<h2 id="background">Background</h2>
+<p>Tetris is, in essence, an optimization game. The game board is a 10 x 20 grid of blocks. A player receives one of seven different pieces consisting of four blocks at a time and must place them in a way that whole rows are filled. The pieces and their respective names are as follows:</p>
+
+<p><img src="https://qph.fs.quoracdn.net/main-qimg-356e2b21c801381db2890dab49a9ea88" alt="screenshot" /></p>
+
+<p><em>Fig 1: Playable Tetris pieces [Tetrominoes] <a href="https://www.quora.com/What-are-the-different-blocks-in-Tetris-called-Is-there-a-specific-name-for-each-block">source</a></em></p>
+
+<p>When a whole row is filled, the row disappears and all rows above it are moved down. A player loses when they “top-off” - when a tetromino exceeds the 20-block height restriction. The goal of the game is to clear as many rows, “lines,” as quickly as possible.</p>
+
+<p>In general, the player receives a better score if more lines are cleared at once or are cleared consecutively. The scoring system will be more thoroughly explained in the actual project. Exceptions are special clears called t-spins and perfect clears, which score high amounts of points relative to lines cleared. It will be interesting to see whether the AI can find these methods.</p>
+
+<p>The optimization comes naturally with reinforcement learning. The AI will score points whenever it places tetrominos as well as clear lines. The more points it receives, the more likely it will try to replicate that clear.</p>
+
+<h3 id="why">Why?</h3>
+<p>This project will touch upon several different problems which may be solved with mini-projects. Its primary purpose is to learn about how to solve problems using various technologies. Tetris will not be recreated in a private environment because I want the AI to extract information directly from the screen.</p>
+
+<p>Besides this, I also wanted to see whether the AI can calculate the most optimal strategies for clearing lines. There are many methods to play: 2-wide combo, 3-wide combo, 4-wide combo, back-to-back tetris, t-spin, perfect clear, middle combo variants, and more. If the AI can find the best method to score, it will be good to utilize that method in online play.</p>
+
+<h2 id="method">Method</h2>
+<p>There will be four smaller projects which culminate to this project, all of which will utilize technologies and code relevant to the main project. These are: an osu!mania bot, a sudoku extractor, a general reinforcement learning program, and finally, AI Plays TetrisFriends.</p>
+
+<h3 id="part-1-osumaniabot">Part 1: Osu!ManiaBOT</h3>
+<p>Osu!Mania, part of <a href="https://osu.ppy.sh/home">Osu!</a>, is a game like Stepmania or Dance Dance Revolution. Using a <a href="https://osu.ppy.sh/community/forums/topics/512453">reskin</a>, I can recreate the arrow mechanisms used in Stepmania and Dance Dance Revolution. The goal of the game is to press the corresponding arrow key when it reaches the top of the screen.</p>
+
+<p><img src="https://i.ppy.sh/ec560eab801b2fab6d8b816956988ed3bc00252a/68747470733a2f2f7075752e73682f7a3454756d2e6a7067" alt="screenshot" />
+<em>Figure 2: Osu!Mania reskin <a href="https://osu.ppy.sh/community/forums/topics/512453">source</a></em></p>
+
+<p>Therefore, in order to succeed, a program must be able to detect whether an arrow is at a certain point and press the matching key. The pixel detection and key inputs will also be used in the main project.</p>
+
+<h3 id="part-2-sudoku-extractor">Part 2: Sudoku Extractor</h3>
+<p>Sudoku is a puzzle game played on a 9x9 grid where the numbers 1-9 may only be placed once per row, column, and 3x3 box.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg/250px-Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg.png" alt="screenshot" /></p>
+
+<p><em>Figure 3: Typical Sudoku Puzzle <a href="https://en.wikipedia.org/wiki/Sudoku">source</a></em></p>
+
+<p>In order to extract the sudoku from various web pages, the program must be able to detect whether there is a grid present and pull numbers from the grid. The number recognition likely needs to be trained using a neural network. In the main project, the capacity to detect a grid will be used to find the environment of the Tetris game, and the number recognition will be used to pull the score for calculations.</p>
+
+<h3 id="part-3-reinforcement-learning">Part 3: Reinforcement Learning</h3>
+<p>A model of reinforcement learning on a simple game will be created in order to learn about the training method. Currently, no game has been selected for the training. I anticipate using TensorFlow for the project. This relates to the main project as the Tetris AI will also be using reinforcement learning.</p>
+
+<h3 id="part-4-ai-plays-tetrisfriends">Part 4: AI Plays TetrisFriends</h3>
+<p>The final part of the project will be to combine everything into one project. The AI will be able to find the Tetris grid, pull pixel data from its 200 grid blocks, find its score and calculate accordingly, and just play the game. It will be trained in Tetris Marathon, a mode that ends after 15 levels.</p>
+
+<p><img src="https://i.imgur.com/SHwNdOw.png" alt="screenshot" /></p>
+
+<p><em>Figure 4: Tetris Marathon Play Space <a href="https://www.tetrisfriends.com/games/Marathon/game.php">source</a></em></p>
+
+<h2 id="further-research">Further Research</h2>
+<p>Every part of this project has the potential to do more than it is intended to do. As I find inspiration or new features, I may revisit the projects and add to them.</p>
+
+<p>Hopefully everything works out okay. I’m excited to start this journey and to report on it!</p>
+
+  
+  
+</article>
+
+
+<footer>
+  <a class="gray" href="/ManiaBot/">« Osu!Mania Bot: Simple Computer Vision AI Using Python</a>
+  <a class="gray" href="/welcome-to-my-blog/">Welcome to my Blog »</a>
+</footer>
+
+
+
+
+</body>

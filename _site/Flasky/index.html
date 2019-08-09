@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<title>Flasky: ManiaBot&#39;s Side Gig | Justin&#39;s Blog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="As I mentioned in the ManiaBot Post, the AI can easily be repurposed to do tasks other than play Mania games. Just for fun, I decided to convert the AI to an...">
+<meta name="author" content="Justin Nguyen">
+<meta name="generator" content="Jekyll v3.8.5">
+<link rel="canonical" href="http://localhost:4000/Flasky/">
+<link rel="stylesheet" href="/assets/css/index.css">
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/contrast.css">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Justin's Blog" />
+
+
+
+
+<body class="light">
+
+<header>
+  <h1><a href="/">Justin&#39;s Blog</a></h1>
+  <nav><a href="/">Home</a><a href="/archive/">Archive</a><a href="/resources/">Resources</a>
+
+    <a class="page-link" href="https://nguyenjus.github.io">Website</a> <!-- This is custom website edge case -->
+
+  </nav>
+  <nav><a class="icon" href="contact"><svg><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a class="icon" href="https://github.com/nguyenjus"><svg><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a class="icon" href="feed.xml"><svg><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+</header>
+
+<article>
+  <header><h1><a href="/Flasky/">Flasky: ManiaBot's Side Gig</a></h1>
+    <time datetime="2019-03-04T18:26:00-05:00">04 March 2019</time>
+  </header>
+<p>As I mentioned in the <a href="https://nguyenjus.github.io/blog/ManiaBot/">ManiaBot Post</a>, the AI can easily be repurposed to do tasks other than play Mania games. Just for fun, I decided to convert the AI to an auto-potter for <a href="https://www.pathofexile.com/news">Path of Exile</a>. When I get to low health (under 35%, but this can be modular), the AI automatically uses a potion for me faster than average human reaction time!</p>
+
+<p><img src="https://media.giphy.com/media/8Fi8e9rlBraURnF50E/giphy.gif" alt="gif" /></p>
+
+<h2 id="disclaimer"><strong>Disclaimer</strong></h2>
+<p>Yes, this can be considered a hacking/cheating tool. As such, I have only used in settings that do not matter - that is in my hideout on Standard League. I will not release the code.</p>
+
+<hr />
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p>So in Path of Exile, there is a condition where if you are under 35% life, you are considered at low-life. There is a health flask that restores health instantly when the user is at low-life, and gradually if the user is not at low-life. We can detect whether the bot knows we’re at low life using this flask.</p>
+
+<p><img src="https://i.imgur.com/IstzKuk.png" alt="drawing" width="300" /></p>
+
+<p>My character’s maximum health is 6060, so low-life is 6060 * 35% = 2121 health.</p>
+
+<p>In order to damage myself without allowing the AI to be considered cheating, I used a skill called “Blood Rage,” which gradually takes away health over a period of 12 seconds. I also used a skill linked to “Blood Magic,” which causes the skill to take away health to use.</p>
+
+<p>The bulk of the code was reused from <a href="https://nguyenjus.github.io/blog/ManiaBot/">ManiaBot</a>. This post will simply run through converting the AI’s job to a different task.</p>
+
+<hr />
+<h2 id="method"><strong>Method</strong></h2>
+<p>I used the same libraries as in ManiaBot - <a href="http://timgolden.me.uk/pywin32-docs/win32ui.html">win32ui</a> and <a href="https://github.com/moses-palmer/pynput">pynput</a>. All we need to do is make a few adjustments.</p>
+
+<p>The first thing to do is uncover what values the color of the health bar can take. This could be done in MSPaint. I added horizontal and vertical black bars to approximate the coordinates I need to use since black lines have a value of 0. We first iterate horizontally to approximate the x-coordinate needed. Then, we iterate through a vertical line of pixels through the black bar to find and print all pixel values:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 100                                   # approximate x
+for i in range(1000):                     # 1920x1080 resolution, so go slightly lower
+    print(i, window.GetPixel(x, i))       # i = our y
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/AGs1TeK.png " alt="drawing" width="400" /></p>
+
+<p>That section of zeroes represents the black bar. The good news is that there is a clear divide between pixel values of the above color and the below color. The upper limit of the red section is approximately 1600000 - 1700000, which is below the lower limit of the no red section.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pixel_color = window.GetPixel(x,y)
+if pixel_color &gt; 1700000:                 # 1700000 divides red from non-red
+    # press the flask                     # just pseudocode!
+</code></pre></div></div>
+
+<p>Now we need to find the coordinates in the actual game. To do this, I brought my character as close to 35% health, but still under, as possible. I approximated the x-coordinate, and iterated through all y coordinates until I found the red values of 1700000 or less. This happened around i = 1030 (so pixel 1030 in the vertical plane). The next step is to slowly move that y-coordinate upwards until the flask successfully triggers.</p>
+
+<p>One issue: the pixel reading was so fast that it would trigger the flask multiple times before it realized that the user’s health had already been refilled. To prevent this, I imported <a href="https://docs.python.org/3/library/time.html">time</a> and put a sleep for 0.1 seconds after triggering the flask.</p>
+
+<p>And we’re done! Here it is in action:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V4WIY-_6pkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>If you look frame-by-frame and do some calculations, you will notice that my AI actually triggers the flask at 33.9% instead of at 34.9999999999%. As I was using my actual account for this small project, I imported a <a href="https://docs.python.org/2/library/random.html">random</a> wait time before using the flask. The range is still quicker than normal human reaction time, so it’s still effective.</p>
+
+<hr />
+<h2 id="wrap-up"><strong>Wrap Up</strong></h2>
+<p>In essence, this AI can do anything that requires a keyboard or mouse action following visual cues. All we need to adjust is where the AI needs to look, what color it needs to look for, and what button it needs to press.</p>
+
+<p>For this particular game, we can even adjust the AI to use potions as soon as they run out to maximize the duration and usage. But I won’t try that because that’s beyond cheating.</p>
+
+<p>For this blog, the posts will slow down as I won’t have much to report on in the coming days until I start my next project. I anticipate that my next projects will not be cheat tools, so I will be more comfortable walking through the full code and releasing the source. Thanks for reading and I hope you learned something!</p>
+
+  
+  
+</article>
+
+
+<footer>
+  <a class="gray" href="/On-DeepMinds-Power-Of-Self-Learning-Systems/">« On DeepMind's Power of Self-Learning Systems</a>
+  <a class="gray" href="/ManiaBot/">Osu!Mania Bot: Simple Computer Vision AI Using Python »</a>
+</footer>
+
+
+
+
+</body>
