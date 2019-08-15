@@ -1,7 +1,11 @@
+# Justin's Blog
+
 Hi.
 
-This theme is Contrast, which comes from https://github.com/niklasbuschmann/contrast.
+My [blog](nguyenjus.github.io/blog) contains some documentation on my path towards AI. 
 
-This will be my blog (nguyenjus.github.io/blog).
+
+This theme is Contrast, which comes from [here](https://github.com/niklasbuschmann/contrast).
+
 
 Happy reading!

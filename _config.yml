@@ -1,6 +1,6 @@
-title: "Justin's Blog"
+title: "Justin's Journal - RL, AI, and More"
 author: "Justin Nguyen"
-description: "My Blog"
+description: "My Journal and Journey"
 
 # Jekyll settings
 permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/

@@ -9,7 +9,7 @@ About a month ago, a friend approached me and asked if I could make a typing bot
 
 ![gif](https://media.giphy.com/media/JRJv30eoBRF1Sb9tcO/giphy.gif)
 
-Although it is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!
+Although the gif is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!
 
 
 

@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-06T11:58:01-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Justin’s Blog</title><subtitle>My Blog</subtitle><author><name>Justin Nguyen</name></author><entry><title type="html">Update on the Blog</title><link href="http://localhost:4000/Update-on-the-Blog/" rel="alternate" type="text/html" title="Update on the Blog" /><published>2019-08-06T07:12:01-04:00</published><updated>2019-08-06T07:12:01-04:00</updated><id>http://localhost:4000/Update-on-the-Blog</id><content type="html" xml:base="http://localhost:4000/Update-on-the-Blog/">&lt;p&gt;I wanted to reiterate and update my goals for this blog as well as my goals as a computer science student. I wanted to think both about previous blogs and future blogs.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-15T13:28:21-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Justin’s Journal for AI, RL, and More!</title><subtitle>My Journal and Journey</subtitle><author><name>Justin Nguyen</name></author><entry><title type="html">Enchanting Simulation - MapleStory2</title><link href="http://localhost:4000/Enchanting-Simulation-MapleStory2/" rel="alternate" type="text/html" title="Enchanting Simulation - MapleStory2" /><published>2019-08-15T12:38:01-04:00</published><updated>2019-08-15T12:38:01-04:00</updated><id>http://localhost:4000/Enchanting-Simulation-MapleStory2</id><content type="html" xml:base="http://localhost:4000/Enchanting-Simulation-MapleStory2/">&lt;p&gt;Over a month ago, I was rushing to get entry into Blackshard Nexus, the final raid in &lt;a href=&quot;http://maplestory2.nexon.net/en&quot;&gt;MapleStory2&lt;/a&gt; at the time. The raid required a specific level of upgraded gear that needed to be acquired in a small amount of time. Although upgrade systems are all luck, we can manipulate the expected probabilities to our favor and have, overall, a better chance at making cuts. To do this, I simulated the game’s enchantment system and threw millions of runs at it! I can’t say that the outcome helped me exactly since it’s all an RNG system, but it certainly helped me pick a method to enchant my items with. In the end, I made it in and cleared the raid on my first week! (my username is hidden)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/EnchantSuccess2.jpg&quot; alt=&quot;+14 Success!&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;When we play MMORPGs, there is always some type of item upgrading system which heavily relies on luck. These upgrades typically have a hard cap on maximum amount of upgrades (+10, +15, etc.). Sometimes, the item may break so we must come up with a way to minimize our losses while maximizing our output. Fortunately, more recent games do away with this breaking system, so we only have to worry about maximizing our output while minimizing our costs. Each game’s system may vary slightly. Some favor the user. Others favor the company profits. If we can minimize expected costs, we can pray and hit upgrade thresholds in a reasonable amount of time and resources.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-system-in-ms2&quot;&gt;The System in MS2&lt;/h3&gt;
+
+&lt;p&gt;MS2 features upgrades from +0 to +15 incrementing by one on success. The higher the upgrade, the lower the success rate:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OPHELIA = [1, 1, 1, 0.95, 0.90, 0.80, 0.70, 0.60, 0.50, 0.40, 0.30, 0.20, 0.15, 0.10, 0.05]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There are two systems to upgrade your items. Ophelia is luck-based with the probabilities given above. Peachy is guaranteed but costs more resources on average. The user may interweave between either system, leading to some creative methods.&lt;/p&gt;
+
+&lt;p&gt;The main limiting resource is the weapon. The amount of weapons required to attempt an upgrade are as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WEAPON_COST = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 4]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;failstacks&quot;&gt;Failstacks&lt;/h4&gt;
+
+&lt;p&gt;Each time the user fails, they gain one failstack plus one per weapon used. Each failstack provides +1% success rate when used. These failstacks are accumulated over time and are one-time use.&lt;/p&gt;
+
+&lt;h4 id=&quot;extra-resources&quot;&gt;Extra Resources&lt;/h4&gt;
+
+&lt;p&gt;The user can choose to add additional resources of the same type (using extra weapons to upgrade a weapon, etc.) for an increase in success rate up to a maximum of 30%. The increase varies based on the current upgrade level:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OPHELIA_EXTRA_WEAPONS = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.07, 0.05, 0.04, 0.02]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note this only starts taking effect +11.&lt;/p&gt;
+
+&lt;h2 id=&quot;simulating&quot;&gt;Simulating&lt;/h2&gt;
+
+&lt;p&gt;The goal of the upgrade was to reach +14 using as few weapons as possible. The system can also be used to find expected outcomes for any other enchantment level. Using the guaranteed Peachy method, the total cost is 55 weapons. How can we best beat this manipulating failstacks and extra resources?&lt;/p&gt;
+
+&lt;p&gt;I wrote a few cases and tested them all on 100000 simulations. Here is the best one for example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;average = 0
+    for i in range(100000):
+        w = Weapon()
+        while w.enchant &amp;lt; TARGET:
+            if w.enchant == 13:
+                w.enchant_with_ophelia(0, w.failstacks)
+            else:
+                w.enchant_with_ophelia(0, 0)
+        average = (average*i + w.weapon_cost)/(i+1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Prior to this, I did some calculations and found the above to be the best method. The simulation agreed. The method was to always use Ophelia system without any failstacks or extra resources. When you reach +13, throw all your failstacks into one big enchant without any extra resources. Here are the results:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    # These methods assume 0 failstack, 0 weapon usage before +13
+    # 51.2364: 0 weps, failstack dump at 13 + 0 extra weps
+    # 51.2975: 0 weps, failstack dump at 13 + 1 extra wep
+    # 51.4172: 0 weps, failstack dump at 13 + 2 extra weps
+    # 51.5569: 0 weps, failstack dump at 13 + 3 extra weps
+    # 51.7857: 0 weps, failstack dump at 13 + 4 extra weps
+    # 52.0763: 0 weps, failstack dump at 13 + 5 extra weps
+    
+    # This method simply throws all failstacks as they are acquired
+    # 54.1322: 0 weps, dump all failstacks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Most of the other experimental methods I tried were worse than taking the guaranteed route. As you can see, the expected outcome of the best method saved 3.7 weapons, which is a 6.8% decrease. Of course, there are more complicated methods, specifically for +15 since the guaranteed method required resources jumps from 55 to 87. Those methods attempt to manage failstacks properly at various thresholds (70, 95, 100) to guarantee success later down the line. They also interweave between Ophelia method and Peachy method depending on the current situation. In the end, all I needed was +14 so I was satisfied.&lt;/p&gt;
+
+&lt;h2 id=&quot;experimental-one-layer-neural-network&quot;&gt;Experimental: One Layer Neural Network&lt;/h2&gt;
+
+&lt;p&gt;Without knowing too much of deep learning, I was curious whether I could initiate a learning mechanism to optimize parameters (method, upgrade level, failstacks, extra resources) for minimum expected outcome. Since this was in June, I was dumb and blind.&lt;/p&gt;
+
+&lt;p&gt;I wrote a neuron class featuring normalization of parameters into range [-1,1], randomized weights for the different parameters, and wrote a linear combination for the weight * parameter to simulate output. The goal was to find the best weights for the problem through population and evolution. I expected that, over time, if we breed the best weights of each generation and mutate them a little, we would find the best weights overall.&lt;/p&gt;
+
+&lt;p&gt;For fun, I called each agent a monkey. I trained 500 monkeys to enchant 1000 weapons each run. 1000 runs were used since we are dealing with probability. We need to normalize the expected outcome so that we don’t deal with outliers.&lt;/p&gt;
+
+&lt;p&gt;In the end, the project was stopped before I could breed the monkeys together. Why? Because the results favored those monkeys that got lucky over a course of 1000 runs… even as I tried to normalize the outcome. All of the best data was written into a .txt file that I could parse for average outcome, methods used at evel upgrade level, etc. Some of these monkeys somehow managed to use an average of 44 weapons over the course of 1000 runs, which is a 20% decrease on costs! I also didn’t feel that my neuron and linear combination were set up properly (in addition to only being one layer), so I decided to scrap it. Why compute like this when we already know a sufficent answer through brute force?&lt;/p&gt;
+
+&lt;p&gt;HOWEVER: the neural network did teach me some things about the upgrade system, believe it or not!&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Those who fail more early are rewarded with better outcomes in the end. This makes sense because at the beginning, no weapons are used. The more you fail at the beginning, the more failstacks you acquire without having to spend weapons.&lt;/li&gt;
+  &lt;li&gt;Ophelia method is the way to go. None of these monkeys ever used Peachy method since that would skew the resources closer to the guaranteed 55. If you are under 55, you want to remain under 55, not move towards 55.&lt;/li&gt;
+  &lt;li&gt;The difference between using 0, 1, and 2 extra weapons is miniscule. There were many different monkeys that used any of the above and still yielded great results. This is consistent with the brute force simulation as there is less than 0.2 difference between using 0 extra weapons and using 2 extra weapons.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;All of this knowledge was thanks to the parseable .txt log file.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This was a fun project in probability! I certainly learned a lot and definitely used it to help me get into the raid. In the end, I actually used 43 weapons to get +14. My luck saved me 21.8% of the resoures…&lt;/p&gt;
+
+&lt;p&gt;My group was able to get rank S in the raid, putting us at rank 12 on our server at the time! I have since quit the game.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/EnchantSuccess.jpg&quot; alt=&quot;+14 Success!&quot; /&gt;&lt;/p&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">Over a month ago, I was rushing to get entry into Blackshard Nexus, the final raid in MapleStory2 at the time. The raid required a specific level of upgraded gear that needed to be acquired in a small amount of time. Although upgrade systems are all luck, we can manipulate the expected probabilities to our favor and have, overall, a better chance at making cuts. To do this, I simulated the game’s enchantment system and threw millions of runs at it! I can’t say that the outcome helped me exactly since it’s all an RNG system, but it certainly helped me pick a method to enchant my items with. In the end, I made it in and cleared the raid on my first week! (my username is hidden)</summary></entry><entry><title type="html">Update on the Blog</title><link href="http://localhost:4000/Update-on-the-Blog/" rel="alternate" type="text/html" title="Update on the Blog" /><published>2019-08-06T07:12:01-04:00</published><updated>2019-08-06T07:12:01-04:00</updated><id>http://localhost:4000/Update-on-the-Blog</id><content type="html" xml:base="http://localhost:4000/Update-on-the-Blog/">&lt;p&gt;I wanted to reiterate and update my goals for this blog as well as my goals as a computer science student. I wanted to think both about previous blogs and future blogs.&lt;/p&gt;
 
 &lt;h2 id=&quot;blog-goals&quot;&gt;Blog Goals&lt;/h2&gt;
 
@@ -31,7 +125,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/JRJv30eoBRF1Sb9tcO/giphy.gif&quot; alt=&quot;gif&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Although it is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!&lt;/p&gt;
+&lt;p&gt;Although the gif is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;We want to write a bot that can read the letters on the screen and type them, preferably like a human with delays between the keystrokes. Why 10fastfingers? Well because I didn’t have access to my friend’s site and 10fastfingers seemed like the simplest cascading-text-lines typing test on the first page of Google’s search.&lt;/p&gt;
@@ -140,7 +234,7 @@ config['topy'] = topleft[1]
 
 &lt;p&gt;Last but least, 45 WPM.&lt;/p&gt;
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HtuTsCHvL6g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">About a month ago, a friend approached me and asked if I could make a typing bot since it could be similar to my ManiaBot. I immediately figured I would need to train the AI on the font to detect the letters that it needed to type. Since I was not confident in machine learning and the project was on a time-constraint, I declined. Two days later, I found Google’s Tesseract OCR, sparking my journey into creating a new AI. Although it is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!</summary></entry><entry><title type="html">On DeepMind’s Power of Self-Learning Systems</title><link href="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/" rel="alternate" type="text/html" title="On DeepMind's Power of Self-Learning Systems" /><published>2019-05-05T22:32:00-04:00</published><updated>2019-05-05T22:32:00-04:00</updated><id>http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems</id><content type="html" xml:base="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/">&lt;p&gt;I recently viewed DeepMind’s talk describing their previous successes with AlphaGo, AlphaGoZero, and AlphaStar. In the lecture, DeepMind described not only their successes, but the importance of their research in many applicable fields. As you may know, DeepMind was and still is one of my primary points of inspiration in my journey in AI/vision. I highly recommend anyone interested in AI to watch it:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HtuTsCHvL6g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>Justin Nguyen</name></author><summary type="html">About a month ago, a friend approached me and asked if I could make a typing bot since it could be similar to my ManiaBot. I immediately figured I would need to train the AI on the font to detect the letters that it needed to type. Since I was not confident in machine learning and the project was on a time-constraint, I declined. Two days later, I found Google’s Tesseract OCR, sparking my journey into creating a new AI. Although the gif is bad quality, you can see how fast (can go faster!) and how correctly (green words!) the AI is typing!</summary></entry><entry><title type="html">On DeepMind’s Power of Self-Learning Systems</title><link href="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/" rel="alternate" type="text/html" title="On DeepMind's Power of Self-Learning Systems" /><published>2019-05-05T22:32:00-04:00</published><updated>2019-05-05T22:32:00-04:00</updated><id>http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems</id><content type="html" xml:base="http://localhost:4000/On-DeepMinds-Power-Of-Self-Learning-Systems/">&lt;p&gt;I recently viewed DeepMind’s talk describing their previous successes with AlphaGo, AlphaGoZero, and AlphaStar. In the lecture, DeepMind described not only their successes, but the importance of their research in many applicable fields. As you may know, DeepMind was and still is one of my primary points of inspiration in my journey in AI/vision. I highly recommend anyone interested in AI to watch it:&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3N9phq_yZP0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
