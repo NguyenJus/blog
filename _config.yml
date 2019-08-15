@@ -3,6 +3,7 @@ author: "Justin Nguyen"
 description: "My Journal and Journey"
 
 # Jekyll settings
+url: https://nguyenjus.github.io
 baseurl: /blog
 permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/
 paginate: 5                  # number of articles per page, remove to disable pagination
