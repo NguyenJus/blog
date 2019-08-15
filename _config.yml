@@ -1,9 +1,9 @@
 title: "Justin's Journal - RL, AI, and More"
 author: "Justin Nguyen"
 description: "My Journal and Journey"
-baseurl: /blog
 
 # Jekyll settings
+baseurl: /blog
 permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/
 paginate: 5                  # number of articles per page, remove to disable pagination
 excerpt_separator: "\n\n\n"  # indicates the end of the excerpt by two blank lines
