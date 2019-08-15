@@ -106,4 +106,4 @@ This was a fun project in probability! I certainly learned a lot and definitely 
 
 My group was able to get rank S in the raid, putting us at rank 12 on our server at the time! I have since quit the game. 
 
-![+14]({{ "/assets/img/EnchantSuccess2.jpg" | absolute_url }})
+![+14]({{ "/assets/img/EnchantSuccess.jpg" | relative_url }})
