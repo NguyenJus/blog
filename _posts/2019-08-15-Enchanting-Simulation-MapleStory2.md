@@ -7,7 +7,9 @@ categories:
 
 Over a month ago, I was rushing to get entry into Blackshard Nexus, the final raid in [MapleStory2](http://maplestory2.nexon.net/en) at the time. The raid required a specific level of upgraded gear that needed to be acquired in a small amount of time. Although upgrade systems are all luck, we can manipulate the expected probabilities to our favor and have, overall, a better chance at making cuts. To do this, I simulated the game's enchantment system and threw millions of runs at it! I can't say that the outcome helped me exactly since it's all an RNG system, but it certainly helped me pick a method to enchant my items with. In the end, I made it in and cleared the raid on my first week! (my username is hidden)
 
-![+14 Success!]({{ "/assets/img/EnchantSuccess2.jpg" | absolute_url }})
+<img src="https://nguyenjus.github.io/blog/assets/img/EnchantSuccess2.jpg">
+
+
 
 
 
@@ -106,4 +108,4 @@ This was a fun project in probability! I certainly learned a lot and definitely 
 
 My group was able to get rank S in the raid, putting us at rank 12 on our server at the time! I have since quit the game. 
 
-![+14]({{ "/assets/img/EnchantSuccess.jpg" | relative_url }})
+<img src="https://nguyenjus.github.io/blog/assets/img/EnchantSuccess.jpg" width="50%" height="50%">
