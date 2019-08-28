@@ -15,6 +15,10 @@ Over a month ago, I was rushing to get entry into Blackshard Nexus, the final ra
 
 
 
+## Source Code
+
+[Github](https://github.com/NguyenJus/MS2-Enchant-Simulation)
+
 ## Introduction
 
 When we play MMORPGs, there is always some type of item upgrading system which heavily relies on luck. These upgrades typically have a hard cap on maximum amount of upgrades (+10, +15, etc.). Sometimes, the item may break so we must come up with a way to minimize our losses while maximizing our output. Fortunately, more recent games do away with this breaking system, so we only have to worry about maximizing our output while minimizing our costs. Each game's system may vary slightly. Some favor the user. Others favor the company profits. If we can minimize expected costs, we can pray and hit upgrade thresholds in a reasonable amount of time and resources.
