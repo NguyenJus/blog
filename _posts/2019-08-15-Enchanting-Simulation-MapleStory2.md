@@ -88,7 +88,7 @@ Prior to this, I did some calculations and found the above to be the best method
 
 And here is an example distribution:
 
-<img src="https://nguyenjus.github.io/blog/assets/img/EnchantDistribution.png" width="50%" height="50%">
+<img src="https://nguyenjus.github.io/blog/assets/img/EnchantDistribution.png" width="75%" height="75%">
 
 Most of the other experimental methods I tried were worse than taking the guaranteed route. As you can see, the expected outcome of the best method saved 3.7 weapons, which is a 6.8% decrease. Of course, there are more complicated methods, specifically for +15 since the guaranteed method required resources jumps from 55 to 87. Those methods attempt to manage failstacks properly at various thresholds (70, 95, 100) to guarantee success later down the line. They also interweave between Ophelia method and Peachy method depending on the current situation. In the end, all I needed was +14 so I was satisfied. 
 
