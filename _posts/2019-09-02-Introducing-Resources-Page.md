@@ -26,7 +26,7 @@ You can get here through the resources tab. On top is a (hopefully small) list o
 ```
 1st sentence: Overall topic of research
 2nd sentence: The scope of the problem
-3rd sentence: applicability of the research
+3rd sentence: Application based on my own opinion
 ```
 
 This structure is not as concise as I'd like, but it is even more difficult to properly fit all important information in two-sentence summaries. 
