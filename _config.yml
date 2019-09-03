@@ -21,6 +21,7 @@ navigation:                  # (optional) site navigation in the header
   - index.html
   - archive.md
   - resources.md
+  - about.md
 
 icons:                       # (optional) icons in the header, see http://fontawesome.com/icons
   envelope: contact
