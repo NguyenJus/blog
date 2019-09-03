@@ -15,8 +15,6 @@ A reading list of papers I found or may find interesting. I've summarized the pa
 
 * [Pointer Networks](https://arxiv.org/pdf/1506.03134.pdf)
 
-* [Drafting in MOBAs](https://arxiv.org/pdf/1806.10130.pdf)
-
 * [General Game AI Reinforcement Learning](https://arxiv.org/pdf/1806.02448.pdf)
 
 * [Hanabi](https://arxiv.org/pdf/1902.00506v1.pdf)
